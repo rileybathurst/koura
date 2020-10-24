@@ -1,0 +1,295 @@
+// Generic
+
+html, body {
+	overflow-x: hidden;
+}
+
+p {
+	@include breakpoint(small) {
+		text-align: left;
+	}
+	@include breakpoint(medium) {
+		text-align: justify;
+	}
+}
+
+.right-medium-up {
+	@include breakpoint (small) {
+		text-align: left;
+	}
+	@include breakpoint (medium) {
+		text-align: right;
+	}
+}
+
+.drop {
+	margin-top: $global-margin;
+}
+
+.img-100 img {
+	width: 100%;
+}
+
+// hack to have full width before large responsive breakpoint
+.grid-padding-collapse {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// Hack as top bar width was pulling across
+.top-bar {
+	display: inherit;
+}
+
+// Used across sites
+
+.flex {
+	display: flex;          /* establish flex container */
+	flex-direction: column; /* stack flex items vertically */
+	position: relative;
+}
+
+.over-flex {
+	position: absolute;
+	top: 50%; /* vertical alignment */
+	background-color:rgba(0, 0, 0, 0.50); //rgba has alpha so not sure about how to have a variable
+	border-radius: $global-radius;
+	font-weight: normal !important;
+	color: $white;
+	left: 50%;
+	transform: translate(-50%, -50%); /* horizontal, vertical alignment fine tuning */
+
+	@include breakpoint (small) {
+		padding: $global-padding;
+	}
+	@include breakpoint (medium) {
+		padding: $global-padding*2;
+	}
+ }
+
+// bring the search for ontop the same line
+.search-form {
+	display: inline-block;
+	@include breakpoint (small) {
+		width: 50%;
+	}
+	@include breakpoint (medium) {
+		width: auto;
+	}
+}
+
+// brings the search field inline with other buttons near it
+.search-field {
+	padding-bottom: 0;
+	padding-top: 0.85em;
+	appearance: unset;
+	height: auto;
+}
+
+// this is how it looks on woocommerce which is far better
+.search-field {
+	padding: .5em !important;
+	appearance: unset;
+	height: auto;
+}
+
+// remove submit button from form so enter of go is the input
+.search-submit {
+	display: none;
+}
+
+// Global classes
+
+.body-color-link, .body-color-link a {
+	color: $body-font-color;
+}
+
+.body-color-link:hover, .body-color-link a:hover {
+	color: $primary-color;
+}
+
+.no-margin-vertical {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.global-padding {
+	padding: $global-padding;
+}
+
+.global-padding-vertical {
+	padding-top: $global-padding;
+	padding-bottom: $global-padding;
+}
+
+// create a variable so this can bused in other places
+$global-padding-top: $global-padding;
+.global-padding-top {
+	padding-top: $global-padding-top;
+}
+
+.no-padding-vertical {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.backed {
+	background: $light-gray;
+}
+
+// full width
+.max-width-100 {
+  max-width: 100%;
+}
+
+// Design decisions
+
+// Below the footer background color
+body {
+	background: $medium-gray;
+}
+
+.off-canvas {
+	background: $white;
+}
+
+// Page background color
+.off-canvas-content {
+	background: $white;
+}
+
+.footer {
+	background: $medium-gray;
+}
+
+.bottom-bar {
+	background: $light-gray;
+}
+
+button, .button {
+	font-family: $header-font-family;
+	background: $light-gray;
+	color: $primary-color;
+	border-radius: 5px;
+}
+
+.button-zero-margin {
+	margin: 0;
+}
+
+// menu
+/* .menu {
+	font-family: $header-font-family;
+} */
+
+/* .menu a {
+	color: $body-font-color;
+} */
+
+.page-numbers {
+	display: inline-block !important;
+	background-color: transparent;
+	color: $primary-color !important;
+}
+
+// hack for the buttons other than the numbers in pagination
+.prev, .next {
+	padding: 0 !important;
+}
+
+.current {
+	border-radius: $global-radius;
+}
+
+// feels kinda hacky still
+.sub-menu li {
+	list-style: none;
+}
+
+.off-canvas .menu {
+	flex-direction: column;
+}
+
+/* .off-canvas .menu-item-has-children {
+	display: flex;
+	flex-direction: column;
+	text-align: right;
+} */
+
+#header_nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+#header_nav .menu-item {
+	text-align: center;
+	border-radius: $global-radius;
+}
+
+#header_nav .menu-item:hover {
+	background: $medium-gray;
+	color: $secondary-color;
+}
+
+#footer_nav {
+	display: flex;
+	justify-content: center;
+}
+
+#footer_nav .menu-item {
+	text-align: center;
+	border-radius: $global-radius;
+}
+
+#footer_nav .menu-item:hover {
+	background: $medium-gray;
+	color: $secondary-color;
+}
+
+.off-canvas .sub-menu {
+	margin-right: 1.25rem;
+	text-align: right;
+}
+
+.off-canvas-content .menu-item {
+	/* flex: 1 1 0px;
+	min-height: 0px;
+	min-width: 0px;
+	width: 100%; */
+}
+
+.category-thumbnails {
+	// max-height: 300px;
+	overflow: hidden;
+	display: grid;
+	justify-content: center;
+	width: 212px;
+	height: 319px;
+
+	@include breakpoint(large) {
+		width: 255px;
+		height: 382px;
+	}
+}
+
+.category-thumbnails img {
+	min-width: 212px !important;
+	min-height: 319px !important;
+
+	@include breakpoint(large) {
+		min-width: 255px !important;
+		min-height: 382px !important;
+	}
+}
+
+.shadow {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+}
+
+header .button { // overirde defaults
+	font-size: 0.9rem !important;
+	padding: 0.85em 1em !important;
+	font-weight: normal !important;
+	border-radius: 4px !important;
+	color: $primary-color !important;
+}

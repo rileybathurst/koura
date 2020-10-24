@@ -1,0 +1,86 @@
+// Pagination
+.woocommerce-pagination {
+	margin-bottom: $global-margin;
+	padding-top: $global-margin;
+	padding-bottom: $global-margin;
+}
+
+.woocommerce nav.woocommerce-pagination ul {
+	border: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+	border: none;
+	margin: $global-margin;
+	background: $light-gray;
+	border-radius: $global-radius;
+}
+
+// span needed for current
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+	padding: $global-padding;
+}
+
+// important only needeed for next and previous
+.woocommerce nav.woocommerce-pagination ul li a.prev,
+.woocommerce nav.woocommerce-pagination ul li a.next {
+	padding: $global-padding !important;
+}
+
+.woocommerce nav.woocommerce-pagination ul li .current, .woocommerce nav.woocommerce-pagination ul li a:hover {
+	background: $primary-color !important;
+	color: $white !important;
+}
+
+
+// Category Pages
+// adding .woocommerce forces override to default
+.woocommerce .woocommerce-breadcrumb {
+	margin-top: $global-margin;
+}
+
+// Single Pages
+// price strike and underline color same as the text
+.amount, del .amount, ins .amount {
+	color: $dark-gray;
+}
+
+// removes sku and duplicate category tags
+.product .product_meta {
+	display: none;
+}
+
+.single-product .woocommerce-product-gallery__image {
+	margin-bottom: $global-margin;
+}
+
+.woocommerce-product-gallery {
+	float: left; // kind of a hack double check this
+}
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+	width: 100%;
+}
+
+.flex-viewport {
+	margin-bottom: 2em;
+}
+
+.variations .label, .variations .value {
+	display: block;
+	margin-bottom: 1em;
+}
+
+.related {
+	width: 100%;
+}
+
+.woocommerce-LoopProduct-link {
+	display: grid;
+	justify-content: center;
+}
+
+.woocommerce-tabs {
+	display: none;
+}
