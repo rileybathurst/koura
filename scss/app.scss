@@ -5,7 +5,7 @@
 // @import '/foundation/motion-ui';
 
 // Global styles
-// @include foundation-global-styles;
+@import 'global';
 // @include foundation-forms;
 // @include foundation-typography;
 
@@ -47,7 +47,7 @@
 // @include foundation-dropdown-menu;
 
 // // Layout components
-// @include foundation-off-canvas;
+@import 'off-canvas';
 // // @include foundation-reveal;
 // // @include foundation-sticky;
 // // @include foundation-title-bar;

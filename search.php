@@ -54,7 +54,7 @@
 
                             </div> <!-- .card -->
                         </div> <!-- .cell -->    
-                   <!--  </div><!-- post -->
+                   <!--  </div> post -->
 
                 <?php endwhile; ?><!-- while have posts -->
 
@@ -72,5 +72,5 @@
         </div><!-- .grid-x -->
     </div><!-- .grid-container -->
 </div><!-- .container -->
-			
+
 <?php get_footer(); ?>

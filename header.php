@@ -24,43 +24,46 @@
 	<!-- recaptcha -->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 
-	<?php
+	<!-- removed this from header when local dev it breaks -->
+<?php
 	// Open Graph Metadata
 	// currently just hacked together to see if this fixes the instagram shopping not as a long term code
 		if( is_product() ){
-		global $fb_title, $fb_description, $fb_url, $fb_brand, $fb_availability, $fb_product_condition, $fb_product_price_amount, $fb_product_price_currency, $fb_retailer_item_id;
+			global $fb_title, $fb_description, $fb_url, $fb_brand, $fb_availability, $fb_product_condition, $fb_product_price_amount, $fb_product_price_currency, $fb_retailer_item_id;
 
-		$fb_categories = get_the_category();
-		if ( ! empty( $fb_categories ) ) {
-			echo esc_html( $fb_categories[0]->name );
-		} else {
-			$fb_categories = "katerina";
-		}
-	?>
+			$fb_categories = get_the_category();
+			if ( ! empty( $fb_categories ) ) {
+				echo esc_html( $fb_categories[0]->name );
+			} else {
+				$fb_categories = "katerina";
+			} ?>
 
-	<meta property="og:title" content="<?php echo $fb_title; ?>">
-	<!-- <meta property="og:description" content="< php echo $fb_description; ?>"> test remove this for single product -->
-	<meta property="og:url" content="<?php echo $fb_url; ?>">
-	<meta property="og:image" content="<?php the_post_thumbnail_url(); ?>"><!-- not working in the plug in so doing a hack here -->
-	<!-- functional but I would love to pull it from the category -->
-	<meta property="product:brand" content="<?php echo $fb_categories; ?>"> <!-- hacked on -->
-	<meta property="product:availability" content="<?php echo $fb_availability; ?>"> <!-- sort of the same thing as brand needs global post product $product->stock -->
-	<meta property="product:condition" content="new"> <!-- needs a default meta -->
-	<meta property="product:price:amount" content="<?php echo $fb_product_price_amount; ?>">
-	<meta property="product:price:currency" content="<?php echo $fb_product_price_currency; ?>">
-	<meta property="product:retailer_item_id" content="<?php echo $fb_retailer_item_id; ?>">
-	<!-- End Open Graph Metadata -->
-<?php } ?>
+			<meta property="og:title" content="<?php echo $fb_title; ?>">
+			<!-- <meta property="og:description" content="< php echo $fb_description; ?>"> test remove this for single product -->
+			<meta property="og:url" content="<?php echo $fb_url; ?>">
+			<meta property="og:image" content="<?php the_post_thumbnail_url(); ?>"><!-- not working in the plug in so doing a hack here -->
+			<!-- functional but I would love to pull it from the category -->
+			<meta property="product:brand" content="<?php echo $fb_categories; ?>"> <!-- hacked on -->
+			<meta property="product:availability" content="<?php echo $fb_availability; ?>"> <!-- sort of the same thing as brand needs global post product $product->stock -->
+			<meta property="product:condition" content="new"> <!-- needs a default meta -->
+			<meta property="product:price:amount" content="<?php echo $fb_product_price_amount; ?>">
+			<meta property="product:price:currency" content="<?php echo $fb_product_price_currency; ?>">
+			<meta property="product:retailer_item_id" content="<?php echo $fb_retailer_item_id; ?>">
+			<!-- End Open Graph Metadata -->
+
+		<!-- end of if( is_product()) -->
+	<?php } ?>
+
+	<meta property="test" content="dev">
 
 </head>
 
 <body <?php body_class(); ?>>
 
-	<!-- test single product -->
-
 	<!-- facebook app code to be used for instagram shopping -->
+	<!-- breaks while local dev -->
 	<script>
-	  window.fbAsyncInit = function() {
+	window.fbAsyncInit = function() {
 		FB.init({
 		  appId      : '1741893722579772',
 		  cookie     : true,
@@ -70,9 +73,9 @@
 
 		FB.AppEvents.logPageView();
 
-	  };
+	};
 
-	  (function(d, s, id){
+	(function(d, s, id){
 		 var js, fjs = d.getElementsByTagName(s)[0];
 		 if (d.getElementById(id)) {return;}
 		 js = d.createElement(s); js.id = id;
@@ -83,13 +86,19 @@
 
 	<!-- canvas wrappers -->
 	<div class="off-canvas-wrapper">
-		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		<!-- <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper> -->
+		<div class="off-canvas-wrapper-inner">
 
 			<!-- this is the off canvas aka small menu -->
-			<div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right">
+			<!-- <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right"> -->
+			<div class="off-canvas position-right" id="offCanvas">
 
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x">
+						<div class="cell text-right">
+							<button id="close-top" class="close-menu">Close Menu</button>
+						</div>
+						
 						<div class="cell">
 							<h2 class="text-right"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo bloginfo( 'name' ); ?></a></h2>
 						</div>
@@ -116,6 +125,10 @@
 							</nav>
 						<?php } ?>
 
+						<div class="cell text-right">
+							<button id="close-bottom" class="close-menu">Close Menu</button>
+						</div>
+
 					</div><!-- grid-x -->
 				</div><!-- grid-container -->
 			</div><!-- off canvas -->
@@ -129,7 +142,7 @@
 							<div class="cell auto">
 
 								<!-- option for empty cart -->
-								<?php if ( WC()->cart->get_cart_contents_count() == 0 ) { ?>
+								<?php if( WC()->cart->get_cart_contents_count() == 0 ) { ?>
 									<h4 class="global-padding-top">All prices are in New Zealand dollars.</h4>
 
 
@@ -151,6 +164,7 @@
 					<div class="grid-x grid-padding-x global-padding-vertical">
 						<div class="cell global-padding-top text-center"><!-- title -->
 
+							<!-- this should be the if has been customized -->
 							<?php $logo = get_template_directory() . '/img/' . get_bloginfo( 'name' ) . '.png';
 
 							if ( file_exists ($logo) ) { ?>
@@ -171,7 +185,7 @@
 
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" class="button button-zero-margin">Cart</a>
 
-							<button type="button" class="button button-zero-margin hide-for-large" data-toggle="offCanvas">Menu</button>
+							<button id="offCanvasToggle" class="button button-zero-margin hide-for-large">Menu</button>
 
 						</div><!-- cell -->
 					 </div><!-- grid-x -->

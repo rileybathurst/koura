@@ -3,79 +3,83 @@
 /*********************
 Start all the functions
 at once for Montgomery.
-*********************/
+ *********************/
 
-if ( ! function_exists( 'montgomery_setup' ) ) :
-/* Sets up theme defaults and registers support for various WordPress features. */
-function montgomery_setup() {
+if (!function_exists('montgomery_setup')) :
+	/* Sets up theme defaults and registers support for various WordPress features. */
+	function montgomery_setup()
+	{
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support('automatic-feed-links');
 
-	/* Let WordPress manage the document title. */
-	add_theme_support( 'title-tag' );
+		/* Let WordPress manage the document title. */
+		add_theme_support('title-tag');
 
-	// This theme uses wp_nav_menu() in two locations.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'text_domain' ),
-		'secondary' => __( 'Seconday Menu', 'text_domain' ),
-		'social'  => __( 'Social Links Menu', 'text_domain' ),
-	) );
+		// This theme uses wp_nav_menu() in two locations.
+		register_nav_menus(array(
+			'primary' => __('Primary Menu', 'text_domain'),
+			'secondary' => __('Seconday Menu', 'text_domain'),
+			'social'  => __('Social Links Menu', 'text_domain'),
+		));
 
-	/*
+		/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
 	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-	) );
+		add_theme_support('html5', array(
+			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+		));
 
-	/* Enable support for Post Formats. */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
-	) );
-
-}
+		/* Enable support for Post Formats. */
+		add_theme_support('post-formats', array(
+			'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
+		));
+	}
 endif; // montgomery_setup
-add_action( 'after_setup_theme', 'montgomery_setup' );
+add_action('after_setup_theme', 'montgomery_setup');
 
 /* Enqueue scripts and styles. */
 
-function montogomery_scripts() {
+function koura_scripts()
+{
 	// Foundation style.
-	wp_enqueue_style( 'foundation', get_template_directory_uri() . '/css/app.css' );
+	wp_enqueue_script('koura_script', get_template_directory_uri() . '/js/app.js', array(), false, true);
+	wp_enqueue_style('koura_style', get_template_directory_uri() . '/css/app.css');
 }
-add_action( 'wp_enqueue_scripts', 'montogomery_scripts' );
+add_action('wp_enqueue_scripts', 'koura_scripts');
 
 // https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
-function mytheme_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
+function mytheme_add_woocommerce_support()
+{
+	add_theme_support('woocommerce');
 }
-add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
 
 // remove p from posts - was making some wierd stuff with flagbanner and extremely custom styling
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_excerpt', 'wpautop' );
+remove_filter('the_content', 'wpautop');
+remove_filter('the_excerpt', 'wpautop');
 
 // Change the email that root level mail is sent from
-add_filter( 'wp_mail_from', function( $email ) {
+add_filter('wp_mail_from', function ($email) {
 	return 'info@katerina.co.nz';
 });
 
-add_filter( 'wp_mail_from_name', function( $name ) {
+add_filter('wp_mail_from_name', function ($name) {
 	return 'Katerina';
 });
 
 // deals with variable set through form _POST
-function prefix_admin_contact() {
+function prefix_admin_contact()
+{
 
 	// Check if captcha has been checked
 	$captcha = $_POST['g-recaptcha-response'];
 
 	// If no captcha
-	if(!$captcha){
+	if (!$captcha) {
 		// Redirect
-		wp_redirect( home_url() . '/sorry' );
+		wp_redirect(home_url() . '/sorry');
 		exit;
 	}
 
@@ -83,25 +87,24 @@ function prefix_admin_contact() {
 	$secretKey = "6Ldqx0cUAAAAAJb2cItBbbZWvzbpPp8AVmWZdrNt";
 	$ip = $_SERVER['REMOTE_ADDR'];
 
-	$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
-	$responseKeys = json_decode($response,true);
-		if(intval($responseKeys["success"]) !== 1) {
+	$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
+	$responseKeys = json_decode($response, true);
+	if (intval($responseKeys["success"]) !== 1) {
 
 		// Spam
-		  wp_redirect( home_url() . '/sorry' );
+		wp_redirect(home_url() . '/sorry');
+	} else {
 
-		} else {
+		// Not Spam and checked captcha
 
-			// Not Spam and checked captcha
+		//email to info@canterburyhomekill.co.nz
+		// $to = 'riley@rileybathurst.com';
+		$tochk = 'info@katerina.co.nz';
+		$to2 = $_POST['email'];
 
-			//email to info@canterburyhomekill.co.nz
-			// $to = 'riley@rileybathurst.com';
-			$tochk = 'info@katerina.co.nz';
-			$to2 = $_POST['email'];
+		$subject = 'Katerina enquiry: ' . $_POST['name'];
 
-			$subject = 'Katerina enquiry: ' . $_POST['name'];
-
-			$txt = '
+		$txt = '
 				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 				<html xmlns="http://www.w3.org/1999/xhtml">
 					<head>
@@ -128,9 +131,9 @@ function prefix_admin_contact() {
 												<hr style="color:#d9d9d9;background-color:#d9d9d9;min-height:1px;border:none;"/>
 
 												<p>
-													Thanks for your contact, '.
-														$_POST['name'] .
-													' we will be in touch ASAP.
+													Thanks for your contact, ' .
+			$_POST['name'] .
+			' we will be in touch ASAP.
 												</p>
 
 												<hr style="color:#d9d9d9;background-color:#d9d9d9;min-height:1px;border:none;"/>
@@ -140,17 +143,17 @@ function prefix_admin_contact() {
 												</p>
 
 												<p> ' .
-													$_POST['add_notes'] .
-												'</p>
+			$_POST['add_notes'] .
+			'</p>
 
 												<hr style="color:#d9d9d9;background-color:#d9d9d9;min-height:1px;border:none;"/>
 
 												<p>
 													We will contact you back on, ' .
-														$_POST['email'] .
-													' or '.
-														$_POST['phone'] .
-												'</p>
+			$_POST['email'] .
+			' or ' .
+			$_POST['phone'] .
+			'</p>
 
 												<hr style="color:#d9d9d9;background-color:#d9d9d9;min-height:1px;border:none;"/>
 
@@ -175,81 +178,81 @@ function prefix_admin_contact() {
 				</html>
 			';
 
-			add_filter( 'wp_mail_from_name', function( $name ) {
-			   return 'Katerina';
-			});
+		add_filter('wp_mail_from_name', function ($name) {
+			return 'Katerina';
+		});
 
-			add_filter( 'wp_mail_content_type', 'set_content_type' );
-				function set_content_type( $content_type ) {
-					return 'text/html';
-			}
-
-			wp_mail($to , $subject , $txt );
-			wp_mail($tochk , $subject , $txt );
-			wp_mail($to2 , $subject , $txt );
-
-			wp_redirect( home_url() . '/thanks' );
-
+		add_filter('wp_mail_content_type', 'set_content_type');
+		function set_content_type($content_type)
+		{
+			return 'text/html';
 		}
 
-	exit;
+		wp_mail($to, $subject, $txt);
+		wp_mail($tochk, $subject, $txt);
+		wp_mail($to2, $subject, $txt);
 
+		wp_redirect(home_url() . '/thanks');
+	}
+
+	exit;
 }
 
-add_action( 'admin_post_contact', 'prefix_admin_contact' );
-add_action( 'admin_post_nopriv_contact', 'prefix_admin_contact' );
+add_action('admin_post_contact', 'prefix_admin_contact');
+add_action('admin_post_nopriv_contact', 'prefix_admin_contact');
 
 // woocommerce https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)
-add_theme_support( 'wc-product-gallery-zoom' );
-add_theme_support( 'wc-product-gallery-lightbox' );
-add_theme_support( 'wc-product-gallery-slider' );
+add_theme_support('wc-product-gallery-zoom');
+add_theme_support('wc-product-gallery-lightbox');
+add_theme_support('wc-product-gallery-slider');
 
-require get_parent_theme_file_path( '/woocommerce/woo-functions.php' );
+require get_parent_theme_file_path('/woocommerce/woo-functions.php');
 
 // open graph
-function add_open_graph_meta(){
+function add_open_graph_meta()
+{
 
 	global $fb_title, $fb_description, $fb_url, $fb_brand, $fb_availability, $fb_product_condition, $fb_product_price_amount, $fb_product_price_currency, $fb_retailer_item_id;
 
-	if( is_product() ){
-		$product = new WC_Product( get_the_ID() );
+	if (is_product()) {
+		$product = new WC_Product(get_the_ID());
 		$fb_title = $product->name;
 		$fb_description =  $product->get_description();
 		$fb_url = $product->get_permalink();
 
-//There's a featured/thumbnail image for this listing
-//		echo '<meta property="og:image" content="'.the_post_thumbnail_url().'">'; // nope as in it breaks the site
-		$fb_brand = get_post_meta( $product->id, 'brand', true); // need to get rid of link // currently array
+		//There's a featured/thumbnail image for this listing
+		//		echo '<meta property="og:image" content="'.the_post_thumbnail_url().'">'; // nope as in it breaks the site
+		$fb_brand = get_post_meta($product->id, 'brand', true); // need to get rid of link // currently array
 		// Get in stock & out of stock
-		if ( $product->is_in_stock() ) {
+		if ($product->is_in_stock()) {
 			$fb_availability = "in stock";
 		};
 		$fb_product_condition = "new"; // hardcoded - needs a default dropdown as an extra thing to do
 		$fb_product_price_amount = $product->price; // should probably do a sale price thing as well
 		$fb_product_price_currency = get_woocommerce_currency();
 		$fb_retailer_item_id = $product->id;
-
 	}
 }
 /*Add da hook */
-add_action( 'wp_head', 'add_open_graph_meta' );
+add_action('wp_head', 'add_open_graph_meta');
 
 /********* DO NOT COPY THE PARTS ABOVE THIS LINE *********/
 /* Change Yoast SEO OpenGraph type
  * Credit: Yoast Team
  * Last Tested: Jul 11 2017 using Yoast SEO 5.0.1 on WordPress 4.8
  */
-add_filter( 'wpseo_opengraph_type', 'yoast_change_opengraph_type', 10, 1 );
-function yoast_change_opengraph_type( $type ) {
-  /* Make magic happen here
+add_filter('wpseo_opengraph_type', 'yoast_change_opengraph_type', 10, 1);
+function yoast_change_opengraph_type($type)
+{
+	/* Make magic happen here
    * Example below changes the homepage to a book type
    */
 
-  if ( is_single() ) {
-	return 'product';
-  } else {
-	return $type;
-  }
+	if (is_single()) {
+		return 'product';
+	} else {
+		return $type;
+	}
 }
 
 /**
@@ -257,7 +260,8 @@ function yoast_change_opengraph_type( $type ) {
  */
 add_filter('loop_shop_columns', 'loop_columns', 999);
 if (!function_exists('loop_columns')) {
-	function loop_columns() {
+	function loop_columns()
+	{
 		return 4; // 3 products per row
 	}
 }
