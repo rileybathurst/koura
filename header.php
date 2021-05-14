@@ -201,7 +201,7 @@
 										// Primary navigation menu.
 										wp_nav_menu( array(
 											'theme_location'	=> 'primary',
-											'items_wrap'		=> '<ul id="header_nav" class="dropdown menu" data-dropdown-menu>%3$s</ul>', // more complex because it needs the outside of the class
+											'items_wrap'		=> '<ul id="header_nav" class="dropdown menu">%3$s</ul>', // more complex because it needs the outside of the class
 										) );
 									?>
 								</nav>

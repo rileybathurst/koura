@@ -17279,12 +17279,15 @@ margin-bottom: 2rem;
 	img, svg {
 		flex: 1 1 3rem;
 		height: max-content;
+		max-height: 5rem; // guess and check
 	}
 
 	// height to sit right
 	img {
 		width: 100%;
 		height: max-content;
+		max-width: 7rem; // guess and check
+		max-height: 2rem; // guess and check
 	}
 }
 
@@ -17307,4 +17310,36 @@ margin-bottom: 2rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
+}
+
+.dropdown.menu > li.opens-right > .is-dropdown-submenu {
+    top: 100%;
+    right: auto;
+    left: 0;
+}
+.is-dropdown-submenu-parent.opens-right > .is-dropdown-submenu {
+    right: auto;
+    left: 100%;
+}
+.sub-menu {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    min-width: 200px;
+    border: 1px solid #cacaca;
+    background: #fefefe;
+	top: 100%;
+	margin-left: -1.25rem;
+}
+
+.menu-item-has-children:hover > .sub-menu {
+    display: block;
+}
+
+.woocommerce .woocommerce-breadcrumb {
+    margin-top: 1rem;
+}
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+    width: 100%;
 }
