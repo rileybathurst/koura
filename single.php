@@ -2,10 +2,12 @@
 
 // this would get messy if not a store post
 if (have_posts()) {
-	while (have_posts()) : the_post();
-		the_content();
-	endwhile;
-else { ?>
+	while (have_posts()) : the_post(); ?>
+		<!-- test above -->
+		<?php the_content(); ?>
+		<!-- test below -->
+	<?php endwhile;
+} else { ?>
 	<div class="grid-container" role="document">
 		<div class="grid-x grid-padding-x">
 

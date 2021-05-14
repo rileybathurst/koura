@@ -5,19 +5,15 @@ html, body {
 }
 
 p {
-	@include breakpoint(small) {
-		text-align: left;
-	}
-	@include breakpoint(medium) {
+	text-align: left;
+	@media (min-width: $breakpoint-medium) {
 		text-align: justify;
 	}
 }
 
 .right-medium-up {
-	@include breakpoint (small) {
 		text-align: left;
-	}
-	@include breakpoint (medium) {
+	@media (min-width: $breakpoint-medium) {
 		text-align: right;
 	}
 }
@@ -59,10 +55,9 @@ p {
 	left: 50%;
 	transform: translate(-50%, -50%); /* horizontal, vertical alignment fine tuning */
 
-	@include breakpoint (small) {
+
 		padding: $global-padding;
-	}
-	@include breakpoint (medium) {
+	@media (min-width: $breakpoint-medium) {
 		padding: $global-padding*2;
 	}
  }
@@ -70,10 +65,9 @@ p {
 // bring the search for ontop the same line
 .search-form {
 	display: inline-block;
-	@include breakpoint (small) {
+
 		width: 50%;
-	}
-	@include breakpoint (medium) {
+	@media (min-width: $breakpoint-medium) {
 		width: auto;
 	}
 }
@@ -266,7 +260,7 @@ button, .button {
 	width: 212px;
 	height: 319px;
 
-	@include breakpoint(large) {
+	@media (min-width: $breakpoint-large) {
 		width: 255px;
 		height: 382px;
 	}
@@ -276,7 +270,7 @@ button, .button {
 	min-width: 212px !important;
 	min-height: 319px !important;
 
-	@include breakpoint(large) {
+	@media (min-width: $breakpoint-large) {
 		min-width: 255px !important;
 		min-height: 382px !important;
 	}

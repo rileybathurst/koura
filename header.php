@@ -24,37 +24,39 @@
 	<!-- recaptcha -->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 
-<?php
-// Open Graph Metadata
-// currently just hacked together to see if this fixes the instagram shopping not as a long term code
-	if( is_product() ){
-	global $fb_title, $fb_description, $fb_url, $fb_brand, $fb_availability, $fb_product_condition, $fb_product_price_amount, $fb_product_price_currency, $fb_retailer_item_id;
+	<?php
+	// Open Graph Metadata
+	// currently just hacked together to see if this fixes the instagram shopping not as a long term code
+		if( is_product() ){
+		global $fb_title, $fb_description, $fb_url, $fb_brand, $fb_availability, $fb_product_condition, $fb_product_price_amount, $fb_product_price_currency, $fb_retailer_item_id;
 
-	$fb_categories = get_the_category();
-	if ( ! empty( $fb_categories ) ) {
-		echo esc_html( $fb_categories[0]->name );
-	} else {
-		$fb_categories = "katerina";
-	}
-?>
+		$fb_categories = get_the_category();
+		if ( ! empty( $fb_categories ) ) {
+			echo esc_html( $fb_categories[0]->name );
+		} else {
+			$fb_categories = "katerina";
+		}
+	?>
 
-<meta property="og:title" content="<?php echo $fb_title; ?>">
-<meta property="og:description" content="<?php echo $fb_description; ?>">
-<meta property="og:url" content="<?php echo $fb_url; ?>">
-<meta property="og:image" content="<?php the_post_thumbnail_url(); ?>"><!-- not working in the plug in so doing a hack here -->
-<!-- functional but I would love to pull it from the category -->
-<meta property="product:brand" content="<?php echo $fb_categories; ?>"> <!-- hacked on -->
-<meta property="product:availability" content="<?php echo $fb_availability; ?>"> <!-- sort of the same thing as brand needs global post product $product->stock -->
-<meta property="product:condition" content="new"> <!-- needs a default meta -->
-<meta property="product:price:amount" content="<?php echo $fb_product_price_amount; ?>">
-<meta property="product:price:currency" content="<?php echo $fb_product_price_currency; ?>">
-<meta property="product:retailer_item_id" content="<?php echo $fb_retailer_item_id; ?>">
-<!-- End Open Graph Metadata -->
+	<meta property="og:title" content="<?php echo $fb_title; ?>">
+	<!-- <meta property="og:description" content="< php echo $fb_description; ?>"> test remove this for single product -->
+	<meta property="og:url" content="<?php echo $fb_url; ?>">
+	<meta property="og:image" content="<?php the_post_thumbnail_url(); ?>"><!-- not working in the plug in so doing a hack here -->
+	<!-- functional but I would love to pull it from the category -->
+	<meta property="product:brand" content="<?php echo $fb_categories; ?>"> <!-- hacked on -->
+	<meta property="product:availability" content="<?php echo $fb_availability; ?>"> <!-- sort of the same thing as brand needs global post product $product->stock -->
+	<meta property="product:condition" content="new"> <!-- needs a default meta -->
+	<meta property="product:price:amount" content="<?php echo $fb_product_price_amount; ?>">
+	<meta property="product:price:currency" content="<?php echo $fb_product_price_currency; ?>">
+	<meta property="product:retailer_item_id" content="<?php echo $fb_retailer_item_id; ?>">
+	<!-- End Open Graph Metadata -->
 <?php } ?>
 
 </head>
 
 <body <?php body_class(); ?>>
+
+	<!-- test single product -->
 
 	<!-- facebook app code to be used for instagram shopping -->
 	<script>
@@ -147,16 +149,16 @@
 
 				<header class="grid-container header">
 					<div class="grid-x grid-padding-x global-padding-vertical">
-						<div class="cell shrink global-padding-top"><!-- title -->
+						<div class="cell global-padding-top text-center"><!-- title -->
 
 							<?php $logo = get_template_directory() . '/img/' . get_bloginfo( 'name' ) . '.png';
 
 							if ( file_exists ($logo) ) { ?>
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/img/' . get_bloginfo( 'name' ) . '.png'; ?>" alt="<?php bloginfo ('name') ?>"></a>
 							<?php } else { if ( is_front_page() && is_home() ) : ?>
-								<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="body-color-link"><?php echo bloginfo( 'name' ); ?></a></h1>
+								<h1><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></strong></h1>
 							<?php else : ?>
-								<h3 class="h1"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="body-color-link"><?php echo bloginfo( 'name' ); ?></a></h3>
+								<h3 class="h1"><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></strong></a></h3>
 							<?php endif; } ?>
 
 						</div><!-- title -->

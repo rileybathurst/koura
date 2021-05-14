@@ -60,7 +60,8 @@
 //  55. Top Bar
 //  56. Xy Grid
 
-@import 'util/util';
+// this was in 13/5/21
+// @import 'foundation/util/util';
 
 // 1. Global
 // ---------
@@ -75,6 +76,12 @@ $foundation-palette: (
   warning: #ffae00,
   alert: #cc4b37,
 );
+$primary-color: #9b5f61;
+$secondary-color: #6b3437;
+$success-color: #3adb76;
+$warning-color: #ffae00;
+$alert-color: #cc4b37;
+
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -99,7 +106,7 @@ $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
-@include add-foundation-colors;
+// @include add-foundation-colors;
 $print-hrefs: true;
 
 // 2. Breakpoints
@@ -112,6 +119,11 @@ $breakpoints: (
   xlarge: 1200px,
   xxlarge: 1440px,
 );
+$breakpoint-small: 0;
+$breakpoint-medium: 640px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1200px;
+$breakpoint-xxlarge: 1440px;
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large);
 
@@ -782,9 +794,9 @@ $table-is-striped: true;
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
 $table-head-background: smart-scale($table-background, $table-color-scale / 2);
-$table-head-row-hover: darken($table-head-background, $table-hover-scale);
+// $table-head-row-hover: darken($table-head-background, $table-hover-scale);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
-$table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
+// $table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
 $table-head-font-color: $body-font-color;
 $table-foot-font-color: $body-font-color;
 $show-header-for-stacked: false;
