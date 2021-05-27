@@ -1,7 +1,7 @@
 # Koura for Katerina
 Koura is a Maori translation for gold
 
-
+Theres something about the max-width: 75rem breaking the footer
 
 I'm removing foundation and gulp
 Going back to a local sass build
