@@ -86,46 +86,23 @@
 
 	<!-- this is the off canvas aka small menu -->
 	<!-- <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right"> -->
-	<div class="off-canvas position-right" id="offCanvas">
-
-		<div class="grid-container">
-			<div class="grid-x grid-padding-x">
-				<div class="cell text-right">
-					<button id="close-top" class="close-menu">Close Menu</button>
-				</div>
-				
-				<div class="cell">
-					<h2 class="text-right"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo bloginfo( 'name' ); ?></a></h2>
-				</div>
-
-				<nav class="cell">
-					<ul class="menu text-right">
-						<li class="cell"><a href="<?php echo esc_url( home_url( '/' ) ); ?>about">About</a></li>
-					</ul>
-				</nav>
-
-				<div class="cell">
-					<hr />
-				</div>
-
-				<?php if ( has_nav_menu( 'primary' ) ) { ?>
-					<nav class="cell">
-						<?php
-							// Primary navigation menu.
-							wp_nav_menu( array(
-								'theme_location' => 'primary',
-								'items_wrap' => '<ul class="menu align-right">%3$s</ul>', // more complex because it needs the outside of the class
-							) );
-						?>
-					</nav>
-				<?php } ?>
-
-				<div class="cell text-right">
-					<button id="close-bottom" class="close-menu">Close Menu</button>
-				</div>
-
-			</div><!-- grid-x -->
-		</div><!-- grid-container -->
+	<div id="offCanvas" class="off-canvas">
+		<button id="close-top" class="close-menu">Close Menu</button>
+		<h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo bloginfo( 'name' ); ?></a></h2>
+		<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>about">About</a></p>
+		<hr />
+		<?php if ( has_nav_menu( 'primary' ) ) { ?>
+			<nav>
+				<?php
+					// Primary navigation menu.
+					wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'items_wrap' => '<ul>%3$s</ul>', // more complex because it needs the outside of the class
+					) );
+				?>
+			</nav>
+		<?php } ?>
+		<button id="close-bottom" class="close-menu">Close Menu</button>
 	</div><!-- off canvas -->
 
 	<div class="backed">

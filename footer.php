@@ -1,20 +1,16 @@
 <footer>
 	<div class="bottom-bar">
-		<div class="grid-container ">
-			<div class="grid-x grid-padding-x global-padding-vertical">
-				<?php if (has_nav_menu('secondary')) { ?>
-					<nav class="cell">
-						<?php
-						// Primary navigation menu.
-						wp_nav_menu(array(
-							'theme_location'	=> 'secondary',
-							'items_wrap'		=> '<ul id="footer_nav" class="dropdown menu" data-dropdown-menu>%3$s</ul>', // more complex because it needs the outside of the class
-						));
-						?>
-					</nav>
-				<?php } ?>
-			</div>
-		</div>
+		<?php if (has_nav_menu('secondary')) { ?>
+			<nav >
+				<?php
+				// Primary navigation menu.
+				wp_nav_menu(array(
+					'theme_location'	=> 'secondary',
+					'items_wrap'			=> '<ul id="footer_nav" class="dropdown menu" data-dropdown-menu>%3$s</ul>', // more complex because it needs the outside of the class
+				));
+				?>
+			</nav>
+		<?php } ?>
 	</div>
 
 	<div class="floor">

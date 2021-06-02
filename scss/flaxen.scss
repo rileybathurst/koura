@@ -120,12 +120,16 @@ body {
 
 .off-canvas {
   background: $white;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  z-index: 9; // above the rest
 }
 
 // Page background color
-.off-canvas-content {
+/* .off-canvas-content {
   background: $white;
-}
+} */
 
 .bottom-bar {
   background: $light-gray;
@@ -139,18 +143,15 @@ button,
   border-radius: 5px;
 }
 
+button:hover,
+.button:hover {
+  cursor: pointer;
+  background: $light-gray;
+}
+
 .button-zero-margin {
   margin: 0;
 }
-
-// menu
-/* .menu {
-	font-family: $header-font-family;
-} */
-
-/* .menu a {
-	color: $body-font-color;
-} */
 
 .page-numbers {
   display: inline-block !important;
@@ -198,10 +199,10 @@ button,
   color: $secondary-color;
 }
 
-.off-canvas .sub-menu {
+/* .off-canvas .sub-menu {
   margin-right: 1.25rem;
   text-align: right;
-}
+} */
 
 /* .off-canvas-content .menu-item { */
 /* flex: 1 1 0px;
@@ -974,9 +975,9 @@ dl {
   transform: translateX(250px);
 }
 
-.offCanvas-open {
+/* .offCanvas-open {
   transform: translateX(0);
-}
+} */
 
 .close-menu {
   margin-top: 1rem;
@@ -1000,8 +1001,31 @@ dl {
   min-width: 200px;
   border: 1px solid $medium-gray;
   background: $white;
-  top: 100%;
+  // top: 100%;
   margin-left: -1.25rem;
+}
+
+.off-canvas .sub-menu {
+  position: relative;
+  display: block;
+  top: auto; // maybe some unset or whatever else to kill this
+  margin: 0;
+  border-bottom: none;
+  background: $light-gray;
+
+  > li {
+    border-bottom: 1px solid $medium-gray;
+
+    > a {
+      display: block;
+      padding-block: 0.5rem;
+    }
+
+    >a:hover {
+      background: $medium-gray;
+
+    }
+  }
 }
 
 .menu-item-has-children:hover > .sub-menu {
@@ -1075,11 +1099,6 @@ ul.products::before {
   display: none !important;
 }
 
-.off-canvas {
-  display: none;
-  // 🚨 just to get it back to somewhat ok
-}
-
 /* .grid-container {
 
 } */
@@ -1108,7 +1127,7 @@ ul.products::before {
 
 .menu {
   list-style: none;
-  width: 100%;
+  width: calc(100% - 2rem);
   justify-content: space-around;
 }
 
@@ -1153,7 +1172,7 @@ ul.products::before {
   }
 
   main {
-	width: 100%;
+	width: calc(100% - 2rem);
 	max-width: 75rem;
 	margin: 0 auto;
 	padding: 1rem;
@@ -1162,7 +1181,7 @@ ul.products::before {
 .top-bar {
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
+	width: calc(100% - 2rem);
 	max-width: 75rem;
 	margin: 0 auto;
 	padding: 1rem;
@@ -1180,7 +1199,8 @@ ul.products::before {
 
 .hide-for-large {
 	@media (min-width: $breakpoint-large) {
-		display: none;
+		display: none !important; // the menu button is failing this
+    // can probably be done better with specificity
 	}
 }
 
@@ -1200,25 +1220,48 @@ nav > div > ul {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 1rem;
-  }
-  
-  nav > div > ul > li {
+}
+
+
+
+nav > div > ul > li {
 	flex: 0 1 10rem;
 	text-align: center;
-  }
+}
   
-  nav > div > ul > li > a {
+nav > div > ul > li > a {
 	display: block;
 	border-radius: 4px;
 	padding-inline-start: 1rem;
 	padding-inline-end: 1rem;
 	padding-block-start: 0.5rem;
 	padding-block-end: 0.5rem;
-  }
+}
   
-  nav > div > ul > li > a:hover {
+nav > div > ul > li > a:hover {
 	background-color: $medium-gray;
+}
+
+.off-canvas > * {
+  margin-block-start: 0;
+}
+
+.off-canvas nav > div > ul {
+  flex-flow: column wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+
+  > li {
+    flex: 1 1 1rem;
+    border-bottom: 1px solid lightgray;
+
+    > a {
+      padding-inline: 0;
+    }
   }
+}
   
   
   /*------------------------------------*\
@@ -1264,4 +1307,21 @@ ul, ol {
 		padding-block-end: 0.5rem;
 		display: block;
 	}
+}
+
+.off-canvas {
+  transform: translate3d(0, -100%, 0);
+  position: absolute; // I don't like this theres a better way
+  width: 100%;
+
+  > p {
+    text-align: center;
+  }
+  > hr {
+    width: calc(100% - 2rem);
+  }
+}
+
+.offCanvas-open {
+  transform: translate3d(0, 0, 0);
 }
