@@ -1,7 +1,10 @@
 // $(document).foundation();
 
+console.log('hello world');
+
 // mini menu
 document.getElementById('offCanvasToggle').onclick = function changeContent() {
+    console.log('hello world');
     document.getElementById('offCanvas').classList.toggle("offCanvas-open"); 
 }
 

@@ -31,3 +31,4 @@ The images are locked to a size so if they are a 2:3 vertical image ratio when u
 - remove flaxen naming
 - look at some of the work done in new themes to easily update
 - get rid of global styles
+- /scss/off-canvas.scss is a foundation pull through this can be dealt with in a lot better ways

@@ -1,13 +1,8 @@
 <?php
 
-/*********************
-Start all the functions
-at once for Montgomery.
- *********************/
-
-if (!function_exists('montgomery_setup')) :
+if (!function_exists('koura_setup')) :
 	/* Sets up theme defaults and registers support for various WordPress features. */
-	function montgomery_setup()
+	function koura_setup()
 	{
 
 		// Add default posts and comments RSS feed links to head.
@@ -36,18 +31,23 @@ if (!function_exists('montgomery_setup')) :
 			'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
 		));
 	}
-endif; // montgomery_setup
-add_action('after_setup_theme', 'montgomery_setup');
+
+	function koura_styles() {
+	wp_enqueue_style('koura_style', get_template_directory_uri() . '/css/app.css');
+	}
+	add_action('wp_enqueue_scripts', 'koura_styles');
+	
+	function koura_scripts()
+	{
+		wp_enqueue_script('koura_script', get_template_directory_uri() . '/js/app.js', array(), false, true);
+	}
+	add_action('wp_enqueue_scripts', 'koura_scripts');
+
+endif; // koura_setup
+add_action('after_setup_theme', 'koura_setup');
 
 /* Enqueue scripts and styles. */
 
-function koura_scripts()
-{
-	// Foundation style.
-	wp_enqueue_script('koura_script', get_template_directory_uri() . '/js/app.js', array(), false, true);
-	wp_enqueue_style('koura_style', get_template_directory_uri() . '/css/app.css');
-}
-add_action('wp_enqueue_scripts', 'koura_scripts');
 
 // https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
 function mytheme_add_woocommerce_support()

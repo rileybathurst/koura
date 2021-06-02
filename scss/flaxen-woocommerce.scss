@@ -1,4 +1,9 @@
-// Pagination
+// I need to document which are overwrites and which are additionals
+
+/*------------------------------------*\
+  #PAGINATION
+\*------------------------------------*/
+
 .woocommerce-pagination {
 	margin-bottom: $global-margin;
 	padding-top: $global-margin;
@@ -33,14 +38,19 @@
 	color: $white !important;
 }
 
+/*------------------------------------*\
+  #CATEGORY PAGES
+\*------------------------------------*/
 
-// Category Pages
 // adding .woocommerce forces override to default
 .woocommerce .woocommerce-breadcrumb {
 	margin-top: $global-margin;
 }
 
-// Single Pages
+/*------------------------------------*\
+  #SINGLE PAGES
+\*------------------------------------*/
+
 // price strike and underline color same as the text
 .amount, del .amount, ins .amount {
 	color: $dark-gray;

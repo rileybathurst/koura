@@ -130,7 +130,6 @@
 
 	<div class="backed">
 		<div class="top-bar">
-
 				<!-- option for empty cart -->
 				<?php if( WC()->cart->get_cart_contents_count() == 0 ) { ?>
 					<h4 class="global-padding-top">All prices are in New Zealand dollars.</h4>
@@ -141,14 +140,12 @@
 				<?php }; ?>
 
 				<h4 class="text-right global-padding-top">Call us on <a href="tel:021 112 7683">021 112 7683</a></h4>
-
 		</div><!-- top-bar -->
 	</div><!-- .backed -->
 
 	<header class="grid-container header">
 		<div class="grid-x grid-padding-x global-padding-vertical">
-			<div class="cell global-padding-top text-center"><!-- title -->
-
+			<div class="cell global-padding-top text-center">
 				<!-- this should be the if has been customized -->
 				<?php $logo = get_template_directory() . '/img/' . get_bloginfo( 'name' ) . '.png';
 
@@ -159,13 +156,13 @@
 				<?php else : ?>
 					<h3 class="h1"><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></strong></a></h3>
 				<?php endif; } ?>
-
-			</div><!-- title -->
+			</div><!-- .cell -->
 
 			<div class="cell auto text-right global-padding-top">
 				<span class="show-for-medium"><?php get_search_form(); ?></span>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>sale" class="button button-zero-margin show-for-medium">Sale</a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" class="button button-zero-margin">Cart</a>
+				
 				<button id="offCanvasToggle" class="button button-zero-margin hide-for-large">Menu</button>
 			</div><!-- cell -->
 		</div><!-- grid-x -->
