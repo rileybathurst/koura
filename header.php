@@ -116,7 +116,7 @@
 					<h4 class="global-padding-top"><a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?></a></h4>
 				<?php }; ?>
 
-				<h4 class="text-right global-padding-top">Call us on <a href="tel:021 112 7683">021 112 7683</a></h4>
+				<h4 class="text-right global-padding-top show-for-medium">Call us on <a href="tel:021 112 7683">021 112 7683</a></h4>
 		</div><!-- top-bar -->
 	</div><!-- .backed -->
 
