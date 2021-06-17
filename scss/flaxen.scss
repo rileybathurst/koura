@@ -1270,10 +1270,14 @@ nav > div > ul > li > a:hover {
   \*------------------------------------*/
   footer nav > div > ul {
 	justify-content: center;
-	width: max-content;
+	// width: max-content;
   max-width: calc(100% - 2rem);
 	margin: 0 auto;
 	flex-flow: row wrap;
+
+  > li {
+    width: max-content;
+  }
 }
 
 .floor {
