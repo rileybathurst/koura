@@ -45,6 +45,16 @@
 // adding .woocommerce forces override to default
 .woocommerce .woocommerce-breadcrumb {
 	margin-top: $global-margin;
+
+	> a {
+		margin-left: -0.25rem;
+		padding: 0.25rem;
+		border-radius: var(--katerina-radius);
+	}
+}
+
+.woocommerce .woocommerce-breadcrumb a:hover {
+	background: #e6e6e6;
 }
 
 /*------------------------------------*\

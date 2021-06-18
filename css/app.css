@@ -71,6 +71,15 @@ button {
 .woocommerce .woocommerce-breadcrumb {
   margin-top: 1rem;
 }
+.woocommerce .woocommerce-breadcrumb > a {
+  margin-left: -0.25rem;
+  padding: 0.25rem;
+  border-radius: var(--katerina-radius);
+}
+
+.woocommerce .woocommerce-breadcrumb a:hover {
+  background: #e6e6e6;
+}
 
 /*------------------------------------*\
   #SINGLE PAGES
@@ -1257,16 +1266,14 @@ dl {
 	height: auto;
 } */
 .products {
-  display: flex !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   gap: 1rem !important;
-  flex-wrap: wrap !important;
-  justify-content: space-between !important;
   width: 100% !important;
   height: 100% !important;
   align-items: stretch;
 }
 .products > .product {
-  flex: 1 1 18rem !important;
   margin: 0 !important;
   display: block;
   width: auto !important;
@@ -1279,20 +1286,25 @@ dl {
 }
 .products > .product > * > .card-image {
   width: 100%;
+  height: 80%;
+  /* guess and check */
   aspect-ratio: 2/3;
   display: block;
 }
 .products > .product > * > .card-image img {
-  min-width: 100%;
-  min-height: 100%;
+  height: 100% !important;
   object-fit: cover;
 }
 .products > .product > * > .card-section {
   padding: 1rem !important;
 }
 
+.products a:hover {
+  background: #e6e6e6;
+}
+
 .products::after {
-  display: none !important;
+  flex-grow: 10;
 }
 
 .woocommerce-Price-currencySymbol {
@@ -1548,6 +1560,31 @@ ul, ol {
     grid-column: 1/3;
     flex-flow: column nowrap !important;
   }
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem;
+  justify-content: space-between;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.related {
+  display: flex;
+  flex-direction: column;
+}
+.related .products {
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+}
+@media screen and (min-width: 39.9988em) {
+  .related .products {
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  }
+}
+.related .products .card-image {
+  height: auto !important;
 }
 
 /*# sourceMappingURL=app.css.map */

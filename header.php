@@ -120,29 +120,25 @@
 		</div><!-- top-bar -->
 	</div><!-- .backed -->
 
-	<header class="grid-container header">
-		<div class="grid-x grid-padding-x global-padding-vertical">
-			<div class="cell global-padding-top text-center">
-				<!-- this should be the if has been customized -->
-				<?php $logo = get_template_directory() . '/img/' . get_bloginfo( 'name' ) . '.png';
+	<header class="header">
+		<!-- this should be the if has been customized -->
+		<?php $logo = get_template_directory() . '/img/' . get_bloginfo( 'name' ) . '.png';
 
-				if ( file_exists ($logo) ) { ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/img/' . get_bloginfo( 'name' ) . '.png'; ?>" alt="<?php bloginfo ('name') ?>"></a>
-				<?php } else { if ( is_front_page() && is_home() ) : ?>
-					<h1><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></strong></h1>
-				<?php else : ?>
-					<h3 class="h1"><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></strong></a></h3>
-				<?php endif; } ?>
-			</div><!-- .cell -->
+		if ( file_exists ($logo) ) { ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/img/' . get_bloginfo( 'name' ) . '.png'; ?>" alt="<?php bloginfo ('name') ?>"></a>
+		<?php } else { if ( is_front_page() && is_home() ) : ?>
+			<h1><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></strong></h1>
+		<?php else : ?>
+			<h3 class="h1"><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></strong></a></h3>
+		<?php endif; } ?>
 
-			<div class="cell auto text-right global-padding-top">
+			<div>
 				<span class="show-for-medium"><?php get_search_form(); ?></span>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>sale" class="button button-zero-margin show-for-medium">Sale</a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" class="button button-zero-margin">Cart</a>
 				
 				<button id="offCanvasToggle" class="button button-zero-margin hide-for-large">Menu</button>
-			</div><!-- cell -->
-		</div><!-- grid-x -->
+			</div><!--  -->
 	</header><!-- grid-container -->
 
 	<div class="backed show-for-large">
