@@ -72,6 +72,8 @@ add_filter('wp_mail_from_name', function ($name) {
 // deals with variable set through form _POST
 function prefix_admin_contact()
 {
+	// gitignore the key
+	require get_parent_theme_file_path( '/etc/captchaKey.php' );
 
 	// Check if captcha has been checked
 	$captcha = $_POST['g-recaptcha-response'];
@@ -84,7 +86,7 @@ function prefix_admin_contact()
 	}
 
 	// When the captcha is checked make sure its not spam
-	$secretKey = "6Ldqx0cUAAAAAJb2cItBbbZWvzbpPp8AVmWZdrNt";
+
 	$ip = $_SERVER['REMOTE_ADDR'];
 
 	$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
@@ -96,10 +98,8 @@ function prefix_admin_contact()
 	} else {
 
 		// Not Spam and checked captcha
-
-		//email to info@canterburyhomekill.co.nz
-		// $to = 'riley@rileybathurst.com';
-		$tochk = 'info@katerina.co.nz';
+		// $todev = 'riley@rileybathurst.com';
+		$tokaterina = 'info@katerina.co.nz';
 		$to2 = $_POST['email'];
 
 		$subject = 'Katerina enquiry: ' . $_POST['name'];
@@ -188,8 +188,8 @@ function prefix_admin_contact()
 			return 'text/html';
 		}
 
-		wp_mail($to, $subject, $txt);
-		wp_mail($tochk, $subject, $txt);
+		wp_mail($todev, $subject, $txt);
+		wp_mail($tokaterina, $subject, $txt);
 		wp_mail($to2, $subject, $txt);
 
 		wp_redirect(home_url() . '/thanks');
@@ -201,11 +201,8 @@ function prefix_admin_contact()
 add_action('admin_post_contact', 'prefix_admin_contact');
 add_action('admin_post_nopriv_contact', 'prefix_admin_contact');
 
-// woocommerce https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)
-add_theme_support('wc-product-gallery-zoom');
-add_theme_support('wc-product-gallery-lightbox');
-add_theme_support('wc-product-gallery-slider');
-
+// woo additions
+require get_parent_theme_file_path( '/etc/woo.php' );
 require get_parent_theme_file_path('/woocommerce/woo-functions.php');
 
 // open graph
@@ -257,11 +254,12 @@ function yoast_change_opengraph_type($type)
 
 /**
  * https://docs.woocommerce.com/document/change-number-of-products-per-row/
+ * I dont think I need this anymore
  */
-add_filter('loop_shop_columns', 'loop_columns', 999);
+/* add_filter('loop_shop_columns', 'loop_columns', 999);
 if (!function_exists('loop_columns')) {
 	function loop_columns()
 	{
 		return 4; // 3 products per row
 	}
-}
+} */

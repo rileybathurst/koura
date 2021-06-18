@@ -46,6 +46,11 @@ $-zf-flex-justify: -zf-flex-justify($global-text-direction);
 /// @type Number
 $global-color-pick-contrast-tolerance: 0;
 
+:root {
+  --global-raidus: 0px;
+  --katerina-radius: 4px;
+}
+
 // Default body styles
 body {
   margin: 0;

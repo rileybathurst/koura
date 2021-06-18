@@ -172,6 +172,11 @@ button:hover,
 // feels kinda hacky still
 .sub-menu li {
   list-style: none;
+
+  > a {
+	width: calc(100% - 1rem);
+	margin: 0.5rem auto;
+  }
 }
 
 .off-canvas .menu {
@@ -189,12 +194,13 @@ button:hover,
   justify-content: space-between;
 }
 
-#header_nav .menu-item {
+#header_nav .menu-item a {
   text-align: center;
-  border-radius: $global-radius;
+  border-radius: var(--katerina-radius);
+  display: block;
 }
 
-#header_nav .menu-item:hover {
+#header_nav .menu-item a:hover {
   background: $medium-gray;
   color: $secondary-color;
 }
@@ -1001,9 +1007,11 @@ dl {
   display: none;
   min-width: 200px;
   border: 1px solid $medium-gray;
+  border-radius: var(--katerina-radius);
   background: $white;
   // top: 100%;
   margin-left: -1.25rem;
+  opacity: 0.9;
 }
 
 .off-canvas .sub-menu {
@@ -1059,37 +1067,51 @@ dl {
 // then delete everything I don't need or document it
 
 .products {
-  display: flex !important;
-  gap: 1rem !important;
-  flex-wrap: wrap !important;
-  justify-content: space-between !important;
-  // aspect-ratio: 2/3 !important; // this is breaking things and pulling the footer up
-  width: 100% !important;
-  height: 100% !important;
+	display: flex !important;
+	gap: 1rem !important;
+	flex-wrap: wrap !important;
+	justify-content: space-between !important;
+	width: 100% !important;
+	height: 100% !important;
+	align-items: stretch;
+	
+	> .product {
+		// li
+		flex: 1 1 18rem !important; // guess and check
+		margin: 0 !important;
+		display: block;
+		width: auto !important;
 
-  > .product {
-	// li
-	flex: 1 1 18rem !important; // guess and check
-	margin: 0 !important;
-	// aspect-ratio: 2 / 3; // I dont think this is working right
-	display: block;
-	width: auto !important;
-	height: min-content;
+		> a {
+			height: 100%;
+		}
 
-	* {
-	  // theres some really messy stuff in here
-	  // not letting the footer drop down
-	  display: block;
+		> * {
+		// theres some really messy stuff in here
+		// not letting the footer drop down
+		display: block;
 
-	  > .card-image {
-		width: 100%;
-	  }
+			> .card-image {
+				width: 100%;
+				aspect-ratio: 2 / 3;
+				display: block;
 
-	  > .card-section {
-		padding: 1rem !important;
-	  }
+				img {
+						min-width: 100%;
+						min-height: 100%;
+						object-fit: cover;
+					}
+			}
+
+			> .card-section {
+				padding: 1rem !important;
+			}
+		}
 	}
-  }
+}
+
+.products::after {
+	display: none !important; // overwrite a woocommerce style
 }
 
 .woocommerce-Price-currencySymbol {
@@ -1360,6 +1382,13 @@ ul, ol {
   #tab-reviews {
     @media screen and (min-width: 39.9988em) {
       grid-column: 2;
+    }
+  }
+
+  .related {
+    @media screen and (min-width: 39.9988em) {
+      grid-column: 1/3;
+      flex-flow: column nowrap !important;
     }
   }
 }
