@@ -18,7 +18,6 @@ The images are locked to a size so if they are a 2:3 vertical image ratio when u
 
 ## To Do
 
-- start with a pattern lab
 - documentate all the things
 - add designs to zepplin if i have the most recent
 - add to dos to git hub and fix
