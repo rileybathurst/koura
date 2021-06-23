@@ -54,7 +54,7 @@
 		<!-- end of if( is_product()) -->
 	<?php } ?>
 
-	<meta property="test" content="dev">
+	<meta name="theme-color" content="#e6e6e6">
 
 </head>
 
