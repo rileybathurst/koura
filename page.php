@@ -7,19 +7,13 @@
 		while (have_posts()) : the_post(); ?>
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x">
-
-						<div class="cell">
+						<div class="cell page__cell">
 							<h2 class="category-title"><?php the_title(); ?></h2>
-						</div>
-
-						<div class="cell">
 							<?php the_post_thumbnail();
 							the_content(); ?>
 						</div>
-
 					</div>
 				</div>
 			</div>
