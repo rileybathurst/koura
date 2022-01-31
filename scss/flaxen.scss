@@ -139,7 +139,7 @@ button,
 .button {
   font-family: $header-font-family;
   background: $light-gray;
-  color: $primary-color;
+  color: var(--primary-color);
   border-radius: 5px;
 }
 
@@ -156,7 +156,7 @@ button:hover,
 .page-numbers {
   display: inline-block !important;
   background-color: transparent;
-  color: $primary-color !important;
+  color: var(--primary-color) !important;
 }
 
 // hack for the buttons other than the numbers in pagination
@@ -251,7 +251,7 @@ header .button {
   padding: 0.85em 1em !important;
   font-weight: normal !important;
   border-radius: 4px !important;
-  color: $primary-color !important;
+  color: var(--primary-color) !important;
 }
 
 /*------------------------------------*\
@@ -910,7 +910,7 @@ h6,
 }
 a {
   line-height: inherit;
-  color: $primary-color;
+  color: var(--primary-color);
   text-decoration: none;
 }
 a:hover,

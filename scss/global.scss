@@ -1,4 +1,4 @@
-$primary-color: #9b5f61;
+// $primary-color: #9b5f61; moved to css variable
 $secondary-color: #6b3437;
 $success-color: #3adb76;
 $warning-color: #ffae00;
@@ -49,6 +49,8 @@ $global-color-pick-contrast-tolerance: 0;
 :root {
   --global-raidus: 0px;
   --katerina-radius: 4px;
+
+  --primary-color: hsl(358, 24%, 45%);
 }
 
 // Default body styles
