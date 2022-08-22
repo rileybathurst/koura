@@ -23,6 +23,10 @@ if ( post_password_required() ) {
 ?>
 
 <div class="product-page">
+
+	<!-- // ! test -->
+	<!-- <h1>test</h1> -->
+
 	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 		<?php do_action( 'woocommerce_before_single_product_summary' ); ?>
 	</div>

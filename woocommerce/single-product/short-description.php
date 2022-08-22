@@ -22,21 +22,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
-// set global
 global $product;
-
-// $short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
-
-// if ( ! $short_description ) {
-//	return;
-// }
 
 ?>
 
 	<!-- show brands name also used for schema of brand -->
 	<div class="cell global-padding-vertical" >
 
+	<!-- // ! this is throwing errors -->
+	<!-- wc_get_product_category_list instead -->
 		<!-- very hacky way of way of pulling full list then string replacing items with php -->
+		
+<!-- 		<h1>test</h1>
+		php wc_get_product_category_list 
+<h1>after</h1> -->
+
 		<?php
 			$cats = $product->get_categories();
 
