@@ -62,9 +62,8 @@
 
 	<!-- facebook app code to be used for instagram shopping -->
 	<!-- breaks while local dev -->
-	<script>
-	window.fbAsyncInit = function() {
-		FB.init({
+	<!-- // ! turned off for testing -->
+	<!-- <script
 		  appId      : '1741893722579772',
 		  cookie     : true,
 		  xfbml      : true,
@@ -78,11 +77,13 @@
 	(function(d, s, id){
 		 var js, fjs = d.getElementsByTagName(s)[0];
 		 if (d.getElementById(id)) {return;}
-		 js = d.createElement(s); js.id = id;
+		 js = d.createElemenscript>
+	window.fbAsyncInit = function() {
+		FB.init({t(s); js.id = id;
 		 js.src = "https://connect.facebook.net/en_US/sdk.js";
 		 fjs.parentNode.insertBefore(js, fjs);
 	   }(document, 'script', 'facebook-jssdk'));
-	</script>
+	</script> -->
 
 	<!-- this is the off canvas aka small menu -->
 	<!-- <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right"> -->
