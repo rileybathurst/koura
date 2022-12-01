@@ -31,6 +31,7 @@ if ( post_password_required() ) {
 		<?php do_action( 'woocommerce_before_single_product_summary' ); ?>
 	</div>
 	<div class="summary entry-summary">
+		<?php the_content(); ?>
 		<?php do_action( 'woocommerce_single_product_summary' ); ?>
 	</div>
 	<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
