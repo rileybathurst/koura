@@ -201,28 +201,38 @@ add_action('admin_post_nopriv_contact', 'prefix_admin_contact');
 function add_open_graph_meta()
 {
 
-	global $fb_title, $fb_description, $fb_url, $fb_brand, $fb_availability, $fb_product_condition, $fb_product_price_amount, $fb_product_price_currency, $fb_retailer_item_id;
+	global
+		$fb_title,
+		$fb_description,
+		$fb_url,
+		$fb_brand,
+		$fb_availability,
+		$fb_product_condition,
+		$fb_product_price_amount,
+		$fb_product_price_currency,
+		$fb_retailer_item_id;
 
 	if (is_product()) {
 		$product = new WC_Product(get_the_ID());
-		$fb_title = $product->name;
+		$fb_title = $product->get_name();
 		$fb_description =  $product->get_description();
 		$fb_url = $product->get_permalink();
 
 		//There's a featured/thumbnail image for this listing
-		//		echo '<meta property="og:image" content="'.the_post_thumbnail_url().'">'; // nope as in it breaks the site
-		$fb_brand = get_post_meta($product->id, 'brand', true); // need to get rid of link // currently array
+				// echo '<meta property="og:image" content="'.the_post_thumbnail_url().'">'; // nope as in it breaks the site
+		$fb_brand = get_post_meta($product->get_ID(), 'brand', true); // need to get rid of link // currently array
 		// Get in stock & out of stock
 		if ($product->is_in_stock()) {
 			$fb_availability = "in stock";
 		};
 		$fb_product_condition = "new"; // hardcoded - needs a default dropdown as an extra thing to do
-		$fb_product_price_amount = $product->price; // should probably do a sale price thing as well
+		$fb_product_price_amount = $product->get_price();
 		$fb_product_price_currency = get_woocommerce_currency();
-		$fb_retailer_item_id = $product->id;
+		// $fb_retailer_item_id = $product->id; // !
+		$fb_retailer_item_id = $product->get_ID();
 	}
 }
-/*Add da hook */
+
 add_action('wp_head', 'add_open_graph_meta');
 
 /********* DO NOT COPY THE PARTS ABOVE THIS LINE *********/
