@@ -1,4 +1,3 @@
-@@ -1,35 +0,0 @@
 <?php
 /**
  * Loop Add to Cart

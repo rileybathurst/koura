@@ -1,9 +1,8 @@
-@@ -1,34 +0,0 @@
 <?php
 /**
  * Content wrappers
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/global/wrapper-start.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/global/wrapper-end.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -24,12 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 $template = wc_get_theme_slug_for_templates();
 
 switch ( $template ) {
-	
 	case 'twentysixteen' :
-		echo '<div id="primary" class="content-area twentysixteen"><main id="main" class="site-main" role="main">';
+		echo '</main></div>';
 		break;
 	default : ?>
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
+            </main>
+        </div> <!-- #primary -->
 		<?php break;
 }

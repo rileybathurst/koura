@@ -43,6 +43,8 @@ if (!function_exists('koura_setup')) :
 		}
 		add_action('wp_enqueue_scripts', 'koura_scripts');
 
+		add_theme_support('woocommerce');
+
 	endif; // koura_setup
 add_action('after_setup_theme', 'koura_setup');
 

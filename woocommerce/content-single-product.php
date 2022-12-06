@@ -1,4 +1,3 @@
-@@ -1,40 +0,0 @@
 <?php
 /*
  * @see     https://docs.woocommerce.com/document/template-structure/
@@ -23,10 +22,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div class="product-page">
-
-	<!-- // ! test -->
-	<!-- <h1>test</h1> -->
+<section class="product-page">
 
 	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 		<?php do_action( 'woocommerce_before_single_product_summary' ); ?>
@@ -36,6 +32,6 @@ if ( post_password_required() ) {
 		<?php do_action( 'woocommerce_single_product_summary' ); ?>
 	</div>
 	<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
-</div><!-- .product-page -->
+</section><!-- .product-page -->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
