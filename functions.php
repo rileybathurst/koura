@@ -33,28 +33,20 @@ if (!function_exists('koura_setup')) :
 	}
 
 	function koura_styles() {
-	wp_enqueue_style('koura_style', get_template_directory_uri() . '/css/app.css');
-	}
-	add_action('wp_enqueue_scripts', 'koura_styles');
+		wp_enqueue_style('koura_style', get_template_directory_uri() . '/css/app.css');
+		}
+		add_action('wp_enqueue_scripts', 'koura_styles');
 	
 	function koura_scripts()
-	{
-		wp_enqueue_script('koura_script', get_template_directory_uri() . '/js/app.js', array(), false, true);
-	}
-	add_action('wp_enqueue_scripts', 'koura_scripts');
+		{
+			wp_enqueue_script('koura_script', get_template_directory_uri() . '/js/app.js', array(), false, true);
+		}
+		add_action('wp_enqueue_scripts', 'koura_scripts');
 
-endif; // koura_setup
+	endif; // koura_setup
 add_action('after_setup_theme', 'koura_setup');
 
 /* Enqueue scripts and styles. */
-
-
-// https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
-function mytheme_add_woocommerce_support()
-{
-	add_theme_support('woocommerce');
-}
-add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
 
 // remove p from posts - was making some wierd stuff with flagbanner and extremely custom styling
 remove_filter('the_content', 'wpautop');
@@ -202,8 +194,8 @@ add_action('admin_post_contact', 'prefix_admin_contact');
 add_action('admin_post_nopriv_contact', 'prefix_admin_contact');
 
 // woo additions
-require get_parent_theme_file_path( '/etc/woo.php' );
-require get_parent_theme_file_path('/woocommerce/woo-functions.php');
+// require get_parent_theme_file_path( '/etc/woo.php' );
+// require get_parent_theme_file_path('/woocommerce/woo-functions.php');
 
 // open graph
 function add_open_graph_meta()
@@ -253,13 +245,29 @@ function yoast_change_opengraph_type($type)
 }
 
 /**
+	* WOOCOMMERCE
+*/
+
+/**
  * https://docs.woocommerce.com/document/change-number-of-products-per-row/
  * I dont think I need this anymore
  */
-/* add_filter('loop_shop_columns', 'loop_columns', 999);
+/* add_filter('loop_shop_columns', 'loop_columns', 999); */
 if (!function_exists('loop_columns')) {
 	function loop_columns()
 	{
-		return 4; // 3 products per row
+		return 3; // 3 products per row
 	}
-} */
+}
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_full', 15 );
+
+if ( ! function_exists( 'woocommerce_full' ) ) {
+
+	/**
+	 * Output the product price.
+	 */
+	function woocommerce_full() {
+		the_content();
+	}
+}

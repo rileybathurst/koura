@@ -22,3 +22,7 @@
 </div>
 
 <?php get_footer(); ?>
+
+<!-- <script>
+	console.log('404');
+</script> -->

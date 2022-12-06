@@ -37,3 +37,7 @@
 </div><!-- container -->
 
 <?php get_footer(); ?>
+
+<!-- <script>
+	console.log('page');
+</script> -->

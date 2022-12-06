@@ -39,13 +39,11 @@
 			} ?>
 
 			<meta property="og:title" content="<?php echo $fb_title; ?>">
-			<!-- <meta property="og:description" content="< php echo $fb_description; ?>"> test remove this for single product -->
 			<meta property="og:url" content="<?php echo $fb_url; ?>">
-			<meta property="og:image" content="<?php the_post_thumbnail_url(); ?>"><!-- not working in the plug in so doing a hack here -->
-			<!-- functional but I would love to pull it from the category -->
-			<meta property="product:brand" content="<?php echo $fb_categories; ?>"> <!-- hacked on -->
-			<meta property="product:availability" content="<?php echo $fb_availability; ?>"> <!-- sort of the same thing as brand needs global post product $product->stock -->
-			<meta property="product:condition" content="new"> <!-- needs a default meta -->
+			<meta property="og:image" content="<?php the_post_thumbnail_url(); ?>">
+			<meta property="product:brand" content="<?php echo $fb_categories; ?>">
+			<meta property="product:availability" content="<?php echo $fb_availability; ?>">
+			<meta property="product:condition" content="new">
 			<meta property="product:price:amount" content="<?php echo $fb_product_price_amount; ?>">
 			<meta property="product:price:currency" content="<?php echo $fb_product_price_currency; ?>">
 			<meta property="product:retailer_item_id" content="<?php echo $fb_retailer_item_id; ?>">
@@ -59,31 +57,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-	<!-- facebook app code to be used for instagram shopping -->
-	<!-- breaks while local dev -->
-	<!-- // ! turned off for testing -->
-	<!-- <script
-		  appId      : '1741893722579772',
-		  cookie     : true,
-		  xfbml      : true,
-		  version    : '{api-version}'
-		});
-
-		FB.AppEvents.logPageView();
-
-	};
-
-	(function(d, s, id){
-		 var js, fjs = d.getElementsByTagName(s)[0];
-		 if (d.getElementById(id)) {return;}
-		 js = d.createElemenscript>
-	window.fbAsyncInit = function() {
-		FB.init({t(s); js.id = id;
-		 js.src = "https://connect.facebook.net/en_US/sdk.js";
-		 fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	</script> -->
 
 	<!-- this is the off canvas aka small menu -->
 	<!-- <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right"> -->
@@ -157,3 +130,8 @@
 	</div><!-- grid-container backed -->
 
 	<hr class="no-margin-vertical max-width-100">
+
+
+<!-- <script>
+	console.log('header');
+</script> -->

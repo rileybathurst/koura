@@ -31,3 +31,26 @@ The images are locked to a size so if they are a 2:3 vertical image ratio when u
 - look at some of the work done in new themes to easily update
 - get rid of global styles
 - /scss/off-canvas.scss is a foundation pull through this can be dealt with in a lot better ways
+
+## Template Overrides
+
+Adjust the single product
+
+Single product view is currently coming from woocommerce
+/templates/content-single-product.php
+
+What I need is inside of
+do_action( 'woocommerce_single_product_summary' );
+
+this is inside of
+*this I will need to override*
+includes/wc-template-hooks.php
+
+the functions its running are inside of
+*this I will need to override*
+includes/wc-template-functions.php
+
+which I cant override as its not a template its a set of hooks,
+those I can override
+
+
