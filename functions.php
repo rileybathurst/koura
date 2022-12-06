@@ -194,7 +194,7 @@ add_action('admin_post_contact', 'prefix_admin_contact');
 add_action('admin_post_nopriv_contact', 'prefix_admin_contact');
 
 // woo additions
-// require get_parent_theme_file_path( '/etc/woo.php' );
+require get_parent_theme_file_path( '/etc/woo.php' );
 // require get_parent_theme_file_path('/woocommerce/woo-functions.php');
 
 // open graph
@@ -217,7 +217,6 @@ function add_open_graph_meta()
 		$fb_title = $product->get_name();
 		$fb_description =  $product->get_description();
 		$fb_url = $product->get_permalink();
-
 		//There's a featured/thumbnail image for this listing
 				// echo '<meta property="og:image" content="'.the_post_thumbnail_url().'">'; // nope as in it breaks the site
 		$fb_brand = get_post_meta($product->get_ID(), 'brand', true); // need to get rid of link // currently array
@@ -228,7 +227,6 @@ function add_open_graph_meta()
 		$fb_product_condition = "new"; // hardcoded - needs a default dropdown as an extra thing to do
 		$fb_product_price_amount = $product->get_price();
 		$fb_product_price_currency = get_woocommerce_currency();
-		// $fb_retailer_item_id = $product->id; // !
 		$fb_retailer_item_id = $product->get_ID();
 	}
 }
@@ -266,7 +264,7 @@ function yoast_change_opengraph_type($type)
 if (!function_exists('loop_columns')) {
 	function loop_columns()
 	{
-		return 3; // 3 products per row
+		return 4; // 3 products per row
 	}
 }
 
@@ -281,3 +279,58 @@ if ( ! function_exists( 'woocommerce_full' ) ) {
 		the_content();
 	}
 }
+
+
+// ! check how useful all this stuff actually is
+
+
+if ( ! function_exists( 'woocommerce_template_loop_product_link_open' ) ) {
+	/**
+	 * Insert the opening anchor tag for products in the loop.
+	 */
+	function woocommerce_template_loop_product_link_open() {
+		global $product;
+
+		$link = apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product ); ?>
+
+		<a href="<?php echo esc_url( $link ); ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link card shadow">
+	<?php }
+}
+
+if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail' ) ) {
+
+	function woocommerce_template_loop_product_thumbnail() { ?>
+		<div class="card-image category-thumbnails">
+			<?php the_post_thumbnail('medium'); ?>
+		</div>
+	<?php }
+}
+
+if ( ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
+
+	/**
+	 * Show the product title in the product loop. By default this is an H2.
+	 */
+	function woocommerce_template_loop_product_title() { ?>
+		<div class="card-section text-center">
+			<h2 class="woocommerce-loop-product__title text-center"><?php echo get_the_title(); ?></h2>
+	<?php }
+}
+
+if ( ! function_exists( 'woocommerce_template_loop_product_link_close' ) ) {
+	/**
+	 * Insert the opening anchor tag for products in the loop.
+	 */
+	function woocommerce_template_loop_product_link_close() { ?>
+			</div>
+		</a>
+	<?php }
+}
+
+if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
+
+	// nothing
+}
+
+// bring this inside the card
+// add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 100 );
