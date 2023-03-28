@@ -11,15 +11,26 @@
 
 	<?php wp_head(); ?>
 
+	<!-- // * deprecated -->
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12917302-14"></script>
+<!-- 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12917302-14"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-12917302-14');
-	</script>
+	</script> -->
+
+	<!-- Google Analytics 4 tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XC8GY1CWW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XC8GY1CWW');
+</script>
 
 	<!-- recaptcha -->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
