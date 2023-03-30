@@ -23,14 +23,15 @@
 	</script> -->
 
 	<!-- Google Analytics 4 tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XC8GY1CWW"></script>
+	<!-- using jetpack stats -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XC8GY1CWW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-2XC8GY1CWW');
-</script>
+</script> -->
 
 	<!-- recaptcha -->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
