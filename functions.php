@@ -336,3 +336,20 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 
 // bring this inside the card
 // add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 100 );
+
+/**
+ * Add a new dashboard widget.
+ * // TODO: this doesnt have stats its just very simple
+ */
+function wpdocs_add_dashboard_widgets() {
+	wp_add_dashboard_widget( 'dashboard_widget', 'Page Stats', 'dashboard_widget_function' );
+}
+add_action( 'wp_dashboard_setup', 'wpdocs_add_dashboard_widgets' );
+
+/**
+ * Output the contents of the dashboard widget
+ */
+function dashboard_widget_function( $post, $callback_args ) {
+	// esc_html_e( "Hello World, this is my first <a href='#'>Dashboard</a> Widget!", "textdomain" );
+	echo "<a href='https://katerina.co.nz/wp-admin/admin.php?page=stats#!/stats/day/posts/katerina.co.nz?startDate=2023-04-09&summarize=1&num=7'>Product Stats Page</a>";
+}
