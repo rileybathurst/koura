@@ -1,0 +1,31 @@
+/*------------------*/
+//  #Visibility
+/*------------------*/
+
+// Internal classes to show/hide elements in JavaScript
+.is-visible {
+  display: block !important;
+}
+.is-hidden {
+  display: none !important;
+}
+
+.show-for-medium {
+  @media screen and (max-width: 39.9988em) {
+    display: none !important;
+  }
+}
+
+.hide-for-large {
+  @media (min-width: $breakpoint-large) {
+    display: none !important; // the menu button is failing this
+    // can probably be done better with specificity
+  }
+}
+
+.show-for-large {
+  display: none;
+  @media (min-width: $breakpoint-large) {
+    display: inherit;
+  }
+}

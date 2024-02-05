@@ -91,20 +91,18 @@
 		<button id="close-bottom" class="close-menu">Close Menu</button>
 	</div><!-- off canvas -->
 
-	<div class="backed">
 		<div class="top-bar">
 				<!-- option for empty cart -->
 				<?php if( WC()->cart->get_cart_contents_count() == 0 ) { ?>
-					<h4 class="global-padding-top">All prices are in New Zealand dollars.</h4>
+					<p>All prices are in New Zealand dollars.</p>
 
 				<!-- cart displayed once products added -->
 				<?php } else { ?>
-					<h4 class="global-padding-top"><a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?></a></h4>
+					<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?></a></p>
 				<?php }; ?>
 
-				<h4 class="text-right global-padding-top show-for-medium">Call us on <a href="tel:021 112 7683">021 112 7683</a></h4>
+				<p class="text-right global-padding-top show-for-medium">Call us on <a href="tel:021 112 7683">021 112 7683</a></p>
 		</div><!-- top-bar -->
-	</div><!-- .backed -->
 
 	<header class="header">
 		<!-- this should be the if has been customized -->
@@ -115,6 +113,7 @@
 		<?php } else { if ( is_front_page() && is_home() ) : ?>
 			<h1><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></strong></h1>
 		<?php else : ?>
+			<!-- // ? why does this become h3? -->
 			<h3 class="h1"><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></strong></a></h3>
 		<?php endif; } ?>
 

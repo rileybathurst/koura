@@ -1,0 +1,92 @@
+/*------------------*/
+//  # Links
+/*------------------*/
+
+a {
+  line-height: inherit;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+// TODO: change the focus
+a:hover,
+a:focus {
+  color: var(--secondary-color);
+}
+
+a img {
+  border: 0;
+}
+
+/*------------------------------------*/
+
+.sub-menu li > a {
+  width: calc(100% - 1rem);
+  margin: 0.5rem auto;
+}
+
+#header_nav .menu-item a {
+  text-align: center;
+  border-radius: var(--vinson-radius);
+  display: block;
+}
+
+#header_nav .menu-item a:hover {
+  background: var(--tin-soldier);
+  color: var(--secondary-color);
+}
+
+.floor a:hover {
+  background: gray;
+}
+
+.floor a:focus {
+  background: var(--industrial-revolution);
+}
+
+/*------------------------------------*/
+
+#copyright {
+  a {
+    color: var(--black-metal);
+  }
+
+  // ? whats the difference
+  a:hover {
+    color: var(--black-metal);
+  }
+}
+
+/*------------------------------------*/
+
+.featured {
+  a {
+    border-radius: 4px;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    // --raven-black
+    background: hsla(0, 0%, 25%, 0.9);
+  }
+
+  a:hover {
+    // --brilliance
+    background: hsla(0, 0%, 97.5%, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/*------------------------------------*/
+
+.products a:hover {
+  background: var(--kingly-cloud);
+}
+
+/*------------------------------------*/
+
+.top-bar a {
+  transition: var(--general-timing);
+}
+
+.top-bar a:hover {
+  background: var(--tin-soldier);
+}

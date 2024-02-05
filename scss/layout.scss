@@ -1,0 +1,350 @@
+/*------------------*/
+//  # Layout
+/*------------------*/
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------------------*/
+
+.drop {
+  margin-top: var(--global-margin);
+}
+
+// hack to have full width before large responsive breakpoint
+.grid-padding-collapse {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// TODO: name
+// I think this can all be done with grid place items center
+.flex {
+  display: flex;
+  flex-direction: column; /* stack flex items vertically */
+  position: relative;
+}
+
+.no-margin-vertical {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.global-padding {
+  padding: var(--global-padding);
+}
+
+.global-padding-vertical {
+  padding-top: var(--global-padding);
+  padding-bottom: var(--global-padding);
+}
+
+.global-padding-top {
+  padding-top: var(--global-padding);
+}
+
+.no-padding-vertical {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// full width
+.max-width-100 {
+  max-width: 100%;
+}
+
+.off-canvas {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  z-index: 9; // above the rest
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------------------*/
+
+.position-right {
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow-y: auto;
+  width: 250px;
+  transform: translateX(250px);
+}
+
+/*------------------------------------*/
+
+#payments {
+  display: flex;
+  max-width: 30rem; // guess and check
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 0.9375rem;
+  padding-left: 0.9375rem;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  img,
+  svg {
+    flex: 1 1 3rem;
+    height: max-content;
+    max-height: 5rem; // guess and check
+  }
+
+  // height to sit right
+  img {
+    width: 100%;
+    height: max-content;
+    max-width: 7rem; // guess and check
+    max-height: 2rem; // guess and check
+  }
+}
+
+.woocommerce .woocommerce-breadcrumb {
+  margin-top: 1rem;
+}
+
+.woocommerce #content div.product div.images,
+.woocommerce div.product div.images,
+.woocommerce-page #content div.product div.images,
+.woocommerce-page div.product div.images {
+  width: 100%;
+}
+
+/*------------------------------------*/
+
+// TODO: so much of this is just build to get something working
+// then delete everything I don't need or document it
+.products {
+  // display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 1rem !important;
+  // flex-wrap: wrap !important;
+  // justify-content: space-between !important;
+  width: 100% !important;
+  height: 100% !important;
+  align-items: stretch;
+
+  > .product {
+    // li
+    // flex: 1 1 18rem !important; // guess and check
+    margin: 0 !important;
+    display: block;
+    width: auto !important;
+
+    > * {
+      // theres some really messy stuff in here
+      // not letting the footer drop down
+      display: block;
+
+      > .card-image {
+        width: 100%;
+        // height: 80%; /* guess and check */
+        height: auto; /* this can be too small but I dont know how to make it better yet */
+        aspect-ratio: 2 / 3;
+        display: block;
+
+        img {
+          height: 100% !important;
+          object-fit: cover;
+        }
+      }
+
+      > .card-section {
+        padding: 1rem !important;
+      }
+    }
+  }
+}
+
+.products::after {
+  // display: none !important; // overwrite a woocommerce style
+  flex-grow: 10; // https://codepen.io/maxvoltar/pen/eYOPdMG
+}
+
+ul.products::before {
+  // overwrite a woocommerce style
+  display: none !important;
+}
+
+.ul.products::after {
+  display: none;
+}
+
+/*------------------------------------*/
+
+.grid-x {
+  max-width: var(--albatross);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cell {
+  width: 100%;
+}
+
+.grid-padding-x {
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+
+.featured {
+  display: grid;
+  place-items: center;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+main {
+  width: calc(100% - 2rem);
+  max-width: var(--albatross);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 2rem);
+  max-width: var(--albatross);
+  margin: 0 auto;
+  padding-inline: 1rem;
+  justify-content: space-between;
+
+  p {
+    padding-block: 0.75rem;
+    margin-block-end: 0;
+  }
+
+  a {
+    border-radius: 4px;
+    padding: 0.5rem;
+  }
+
+  a:hover {
+    background: var(--tin-soldier);
+  }
+}
+
+/*------------------------------------*\
+	// #footer
+\*------------------------------------*/
+
+footer nav > div > ul {
+  justify-content: center !important; // has to get over .menu
+  // width: max-content;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  flex-flow: row wrap;
+
+  > li {
+    width: max-content;
+    flex-basis: auto !important; // I dont like these
+    flex-grow: unset !important;
+  }
+}
+
+/*------------------------------------*/
+
+.floor {
+  padding-bottom: 3rem;
+}
+
+/*------------------------------------*/
+
+#copyright {
+  padding-block: 1rem;
+
+  > div > ul > li {
+    flex: 1 1 9rem;
+
+    > span {
+      padding-inline: 1rem;
+      padding-block: 0.5rem;
+      display: block;
+    }
+  }
+}
+
+/*------------------------------------*/
+
+.product-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media screen and (min-width: 39.9988em) {
+    grid-template-columns: 1fr 1.67fr;
+  }
+
+  > * {
+    grid-column: 1;
+  }
+
+  .summary,
+  #tab-reviews {
+    @media screen and (min-width: 39.9988em) {
+      grid-column: 2;
+    }
+  }
+
+  .related {
+    @media screen and (min-width: 39.9988em) {
+      grid-column: 1/3;
+      flex-flow: column nowrap !important;
+    }
+  }
+}
+
+/*------------------------------------*/
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem;
+  justify-content: space-between;
+  max-width: var(--albatross);
+  margin: 0 auto;
+}
+
+/*------------------------------------*/
+
+.related {
+  display: flex;
+  flex-direction: column;
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+
+    @media screen and (min-width: 39.9988em) {
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    }
+
+    .card-image {
+      height: auto !important;
+    }
+  }
+}
+
+.page__cell {
+  max-width: 40rem;
+  margin: 3rem auto;
+}

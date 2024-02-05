@@ -1,0 +1,103 @@
+:root {
+  /*------------------*/
+  //  #COLORS
+  /*------------------*/
+
+  --primary-color: hsl(358, 25%, 45%);
+  --secondary-color: hsl(358, 37.5%, 25%);
+  --alert-color: hsl(8, 62.5%, 50%);
+
+  /*------------------*/
+  //  #NEUTRALS
+  /*------------------*/
+
+  --black-metal: hsl(0, 0%, 2.5%);
+  --black-out: hsl(0, 0%, 12.5%);
+  --raven-black: hsl(0, 0%, 25%);
+  --industrial-revolution: hsl(0, 0%, 37.5%);
+  // gray --gray: hsl(0, 0%, 50%);
+  --cold-grey: hsl(0, 0%, 62.5%);
+  --tin-soldier: hsl(0, 0%, 75%);
+  --kingly-cloud: hsl(0, 0%, 87.5%);
+  --brilliance: hsl(0, 0%, 97.5%);
+
+  /*------------------*/
+  //  #LOUIE
+  /*------------------*/
+  --pitch: 2.5%;
+  --dark: 12.5%;
+  --dull: 25%;
+  --dim: 37.5%;
+  --mid: 50%;
+  --glow: 62.5%;
+  --light: 75%;
+  --bright: 87.5%;
+  --brilliant: 97.5%;
+
+  /*------------------*/
+  //  #TYPOGRAPHY
+  /*------------------*/
+
+  // https://tailwindcss.com/docs/font-family
+  --header-font-family: "Lora", ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  --body-font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  // TODO: Im not using any thats a problem
+  // --heavyweight: 900;
+  // --bridgerweight: 800;
+  // --cruiserweight: 700;
+  // --welterweight: 600;
+  // --lightweight: 500;
+  --featherweight: 400;
+  // --bantamweight: 300;
+  // --flyweight: 200;
+  // --atomweight: 100;
+
+  // TODO:
+  // --everest: 3rem; /* 29,035ft Asia */
+  // --aconcagua: 2.5rem; /* 22,840ft South America */
+  // --denali: 2rem; /* 20,320ft North America */
+  // --kilimanjaro: 1.5rem; /* 19,340ft Africa */
+  // --elbrus: 1.25rem; /* 18,510ft Europe / Russia */
+  // --vinson: 1rem; /* 16,050ft Antartica */
+  // --kosciuszko: 0.75rem; /* 7,310ft Australia */
+
+  /*------------------*/
+  //  #WIDTHS
+  /*------------------*/
+
+  // --swan: 20rem;
+  // --vulture: 30rem;
+  // --stork: 40rem;
+  // --condor: 50rem;
+  // --pelican: 60rem;
+  --albatross: 75rem;
+
+  /*------------------*/
+  //  #SHADOWS
+  /*------------------*/
+  --mesosphere: 0 5px 12px hsla(0, 0%, 0%, 0.4),
+    0 18px 32px hsla(0, 0%, 0%, 0.16);
+  --stratosphere: 0 2px 3px hsla(0, 0%, 0%, 0.12),
+    0 3px 6px hsla(0, 0%, 0%, 0.14);
+  --troposphere: 0 2px 3px hsla(0, 0%, 0%, 0.12),
+    0 3px 6px hsla(0, 0%, 0%, 0.14);
+
+  /*------------------*/
+  //  #RADIUS
+  /*------------------*/
+
+  --vinson-radius: 0.25rem;
+
+  // TODO: align this to line height
+  --global-margin: 1rem;
+  --global-padding: 1rem;
+
+  /*------------------*/
+  //  #TRANSITIONS
+  /*------------------*/
+
+  --general-timing: 0.2s ease-in-out;
+}

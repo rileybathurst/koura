@@ -1,0 +1,40 @@
+/*------------------*/
+//  # Color
+/*------------------*/
+
+body {
+  background: var(--brilliance);
+  color: var(--black-metal);
+}
+
+/*------------------------------------*/
+
+.off-canvas {
+  background: var(--brilliance);
+}
+
+.backed,
+.bottom-bar {
+  background: var(--kingly-cloud);
+}
+
+.floor {
+  background: var(--tin-soldier);
+}
+
+.top-bar {
+  background: var(--kingly-cloud);
+  box-shadow: 0 0 0 100vmax var(--kingly-cloud);
+  clip-path: inset(0 -100vmax);
+  color: var(--black-out);
+
+  // testing
+  // background: hsl(0, 0%, 92.5%);
+  // box-shadow: 0 0 0 100vmax hsl(0, 0%, 92.5%);
+  // clip-path: inset(0 -100vmax);
+
+  // test maybe do this later
+  // background: hsl(358, 25%, 87.5%);
+  // box-shadow: 0 0 0 100vmax hsl(358, 25%, 87.5%);
+  // clip-path: inset(0 -100vmax);
+}

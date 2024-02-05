@@ -1,13 +1,13 @@
-// I need to document which are overwrites and which are additionals
+// TODO: I need to document which are overwrites and which are additionals
 
 /*------------------------------------*\
   #PAGINATION
 \*------------------------------------*/
 
 .woocommerce-pagination {
-  margin-bottom: $global-margin;
-  padding-top: $global-margin;
-  padding-bottom: $global-margin;
+  margin-bottom: var(--global-margin);
+  padding-top: var(--global-margin);
+  padding-bottom: var(--global-margin);
 }
 
 .woocommerce nav.woocommerce-pagination ul {
@@ -16,27 +16,27 @@
 
 .woocommerce nav.woocommerce-pagination ul li {
   border: none;
-  margin: $global-margin;
-  background: $light-gray;
-  border-radius: $global-radius;
+  margin: var(--global-margin);
+  background: var(--kingly-cloud);
+  border-radius: 0;
 }
 
 // span needed for current
 .woocommerce nav.woocommerce-pagination ul li a,
 .woocommerce nav.woocommerce-pagination ul li span {
-  padding: $global-padding;
+  padding: var(--global-padding);
 }
 
 // important only needeed for next and previous
 .woocommerce nav.woocommerce-pagination ul li a.prev,
 .woocommerce nav.woocommerce-pagination ul li a.next {
-  padding: $global-padding !important;
+  padding: var(--global-padding) !important;
 }
 
 .woocommerce nav.woocommerce-pagination ul li .current,
 .woocommerce nav.woocommerce-pagination ul li a:hover {
   background: var(--primary-color) !important;
-  color: $white !important;
+  color: var(--brilliance) !important;
 }
 
 /*------------------------------------*\
@@ -45,16 +45,17 @@
 
 // adding .woocommerce forces override to default
 .woocommerce .woocommerce-breadcrumb {
-  margin-top: $global-margin;
+  margin-top: var(--global-margin);
 
   > a {
     margin-left: -0.25rem;
     padding: 0.25rem;
-    border-radius: var(--katerina-radius);
+    border-radius: var(--vinson-radius);
   }
 }
 
 .woocommerce .woocommerce-breadcrumb a:hover {
+  // TODO:
   background: #e6e6e6;
 }
 
@@ -66,7 +67,7 @@
 .amount,
 del .amount,
 ins .amount {
-  color: $dark-gray;
+  color: gray;
 }
 
 // removes sku and duplicate category tags
@@ -75,7 +76,7 @@ ins .amount {
 }
 
 .single-product .woocommerce-product-gallery__image {
-  margin-bottom: $global-margin;
+  margin-bottom: var(--global-margin);
 }
 
 .woocommerce-product-gallery {

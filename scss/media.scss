@@ -1,0 +1,68 @@
+/*------------------*/
+//  # Media
+/*------------------*/
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+.img-100 img {
+  width: 100%;
+}
+
+/*------------------------------------*/
+
+.map_canvas img,
+.map_canvas embed,
+.map_canvas object,
+.mqa-display img,
+.mqa-display embed,
+.mqa-display object {
+  max-width: none !important;
+}
+
+/*------------------------------------*/
+
+// TODO: variable
+.shadow {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+}
+
+/*------------------------------------*/
+
+.category-thumbnails {
+  // max-height: 300px;
+  overflow: hidden;
+  display: grid;
+  justify-content: center;
+  width: 212px;
+  height: 319px;
+
+  @media (min-width: $breakpoint-large) {
+    width: 255px;
+    height: 382px;
+  }
+}
+
+.category-thumbnails img {
+  min-width: 212px !important;
+  min-height: 319px !important;
+
+  @media (min-width: $breakpoint-large) {
+    min-width: 255px !important;
+    min-height: 382px !important;
+  }
+}
+
+/*------------------------------------*/
+
+.featured {
+  > img,
+  figure {
+    width: 100%;
+  }
+}

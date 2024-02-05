@@ -1,0 +1,136 @@
+/*------------------*/
+//  #TYPOGRAPHY
+/*------------------*/
+
+body {
+  font-family: var(--body-font-family);
+  font-weight: var(--featherweight);
+}
+
+// TODO:
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  // TODO: move this to only where needed
+  font-family: var(--header-font-family);
+  font-weight: normal;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+// TODO: needs a real type scale and heirachy
+h1,
+.h1 {
+  font-size: 1.5rem; // 24px
+}
+
+h2,
+.h2 {
+  font-size: 1.25rem; // 20px
+}
+
+h3,
+.h3 {
+  font-size: 1.1875rem; // 19px
+}
+
+h4,
+.h4 {
+  font-size: 1.125rem; // 18px
+}
+
+h5,
+.h5 {
+  font-size: 1.0625rem; // 17px this isnt worth doing
+}
+
+h6,
+.h6 {
+  font-size: 1rem; // 16px
+}
+
+small {
+  font-size: 80%;
+  line-height: inherit;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: inherit;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+// TODO: this shouldnt be everywhere
+p {
+  text-align: left;
+  @media (min-width: $breakpoint-medium) {
+    text-align: justify;
+  }
+}
+
+hr {
+  clear: both;
+  max-width: var(--albatross);
+  height: 0;
+  margin: 1.25rem auto;
+  border: none;
+  border-bottom: 1px solid var(--tin-soldier);
+}
+
+body {
+  // TODO: variable
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/*------------------------------------*/
+
+.right-medium-up {
+  text-align: left;
+  @media (min-width: $breakpoint-medium) {
+    text-align: right;
+  }
+}
+
+// ?
+.aligncenter {
+  clear: both;
+}
+
+.woocommerce-Price-currencySymbol {
+  display: inline !important;
+}
+
+.text-right {
+  text-align: right;
+}
+
+#copyright {
+  white-space: nowrap;
+}
+
+.topbar {
+  font-family: --body-font-family;
+}

@@ -1,14 +1,15 @@
 # Koura for Katerina
+
 Koura is a Maori translation for gold
 
-Theres something about the max-width: 75rem breaking the footer
+Theres something about the max-width: var(--albatross) breaking the footer
 
 I'm removing foundation and gulp
 Going back to a local sass build
 
-``` % sass --watch scss/app.scss css/app.css ```
+`% sass --watch scss/app.scss css/app.css`
 
-``` % sass --style=compressed scss/app.scss css/app.css ```
+`% sass --style=compressed scss/app.scss css/app.css`
 
 The way I'm developing will be with a pattern lab for hot module reload
 
@@ -43,14 +44,12 @@ What I need is inside of
 do_action( 'woocommerce_single_product_summary' );
 
 this is inside of
-*this I will need to override*
+_this I will need to override_
 includes/wc-template-hooks.php
 
 the functions its running are inside of
-*this I will need to override*
+_this I will need to override_
 includes/wc-template-functions.php
 
 which I cant override as its not a template its a set of hooks,
 those I can override
-
-

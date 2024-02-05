@@ -1,0 +1,61 @@
+/*------------------*/
+//  #BUTTONS
+/*------------------*/
+
+[data-whatinput="mouse"] button {
+  outline: 0;
+}
+
+button,
+.button {
+  background: var(--kingly-cloud);
+  color: var(--primary-color);
+}
+
+button {
+  padding: 0;
+  // TODO: test these
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  line-height: 1;
+  cursor: auto;
+}
+
+button:hover,
+.button:hover {
+  cursor: pointer;
+  background: var(--kingly-cloud);
+}
+
+.button-zero-margin {
+  margin: 0;
+}
+
+.page-numbers {
+  display: inline-block !important;
+  background-color: transparent;
+  color: var(--primary-color) !important;
+}
+
+// hack for the buttons other than the numbers in pagination
+.prev,
+.next {
+  padding: 0 !important;
+}
+
+.current {
+  border-radius: 0;
+}
+
+header .button {
+  // overirde defaults
+  font-size: 0.9rem !important;
+  padding: 0.85em 1em !important;
+  font-weight: normal !important;
+  border-radius: 4px !important;
+  color: var(--primary-color) !important;
+}

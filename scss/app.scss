@@ -1,5 +1,19 @@
-// Global styles
-@import 'global';
-@import 'off-canvas';
-@import 'flaxen-woocommerce';
-@import 'flaxen';
+/*------------------*/
+//  #KORUA
+/*------------------*/
+
+@import "reset";
+@import "variables";
+@import "global";
+@import "off-canvas";
+@import "woocommerce";
+@import "typography";
+@import "links";
+@import "lists";
+@import "menu";
+@import "media";
+@import "layout";
+@import "forms";
+@import "color";
+@import "buttons";
+@import "visibility";

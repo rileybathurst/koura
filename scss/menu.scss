@@ -1,0 +1,134 @@
+/*------------------------------------*/
+/* #MENU */
+/*------------------------------------*/
+
+.close-menu {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.dropdown.menu > li.opens-right > .is-dropdown-submenu {
+  top: 100%;
+  right: auto;
+  left: 0;
+}
+.is-dropdown-submenu-parent.opens-right > .is-dropdown-submenu {
+  right: auto;
+  left: 100%;
+}
+.sub-menu {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  min-width: 200px;
+  border: 1px solid var(--tin-soldier);
+  border-radius: var(--vinson-radius);
+  background: var(--brilliance);
+  // top: 100%;
+  margin-left: -1.25rem;
+  opacity: 0.9;
+}
+
+.off-canvas .sub-menu {
+  position: relative;
+  display: block;
+  top: auto; // maybe some unset or whatever else to kill this
+  margin: 0;
+  border-bottom: none;
+  background: var(--kingly-cloud);
+
+  > li {
+    border-bottom: 1px solid var(--tin-soldier);
+
+    > a {
+      display: block;
+      padding-block: 0.5rem;
+    }
+
+    > a:hover {
+      background: var(--tin-soldier);
+    }
+  }
+}
+
+.menu-item-has-children:hover > .sub-menu {
+  display: block;
+}
+
+.menu {
+  list-style: none;
+  width: calc(100% - 2rem);
+  justify-content: space-around;
+}
+
+/*------------------------------------*/
+
+// TODO: fix the specificity it might need classes
+
+nav > div > ul {
+  width: 100%;
+  max-width: var(--albatross);
+  padding: 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+nav > div > ul > li {
+  flex: 0 1 10rem;
+  text-align: center;
+}
+
+nav > div > ul > li > a {
+  display: block;
+  border-radius: 4px;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  padding-block-start: 0.5rem;
+  padding-block-end: 0.5rem;
+}
+
+nav > div > ul > li > a:hover {
+  background-color: var(--tin-soldier);
+}
+
+.off-canvas > * {
+  margin-block-start: 0;
+}
+
+.off-canvas nav > div > ul {
+  flex-flow: column wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+
+  > li {
+    flex: 1 1 1rem;
+    border-bottom: 1px solid lightgray;
+
+    > a {
+      padding-inline: 0;
+    }
+  }
+}
+
+.off-canvas {
+  transform: translate3d(0, -100%, 0);
+  position: absolute; // I don't like this theres a better way
+  width: 100%;
+
+  > p {
+    text-align: center;
+  }
+  > hr {
+    width: calc(100% - 2rem);
+  }
+}
+
+.offCanvas-open {
+  transform: translate3d(0, 0, 0);
+}
