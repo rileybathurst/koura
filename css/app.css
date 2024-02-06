@@ -239,6 +239,13 @@ td {
   --body-font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --featherweight: 400;
+  --everest: 1.5rem; /* 29,035ft Asia */
+  --aconcagua: 1.25rem; /* 22,840ft South America */
+  --denali: 1.1875rem; /* 20,320ft North America */
+  --kilimanjaro: 1.125rem; /* 19,340ft Africa */
+  --elbrus: 1.0625rem; /* 18,510ft Europe / Russia */
+  --vinson: 1rem; /* 16,050ft Antartica */
+  --kosciuszko: 0.8rem; /* 7,310ft Australia */
   /*------------------*/
   /*------------------*/
   --albatross: 75rem;
@@ -338,6 +345,7 @@ ins .amount {
 .woocommerce-page #content div.product div.images,
 .woocommerce-page div.product div.images {
   width: 100%;
+  border-radius: var(--vinson-radius);
 }
 
 .flex-viewport {
@@ -363,11 +371,31 @@ ins .amount {
   display: none;
 }
 
+.flex-control-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.flex-control-thumbs > * {
+  width: 100% !important;
+}
+
+.wc-block-components-notice-banner.is-info {
+  border-color: var(--primary-color) !important;
+  background-color: var(--kingly-cloud) !important;
+}
+
+.wc-block-components-notice-banner.is-info > svg {
+  background-color: var(--primary-color) !important;
+}
+
 /*------------------*/
 /*------------------*/
 body {
   font-family: var(--body-font-family);
   font-weight: var(--featherweight);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 h1,
@@ -382,44 +410,60 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: var(--header-font-family);
   font-weight: normal;
-  line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
 }
 
 h1,
-.h1 {
-  font-size: 1.5rem;
+.h1,
+.everest {
+  font-size: 2rem;
+  line-height: 2.5;
+  margin-block-end: 1.25rem;
 }
 
 h2,
-.h2 {
-  font-size: 1.25rem;
+.h2,
+.aconcagua {
+  font-size: 1.75rem;
+  line-height: 2;
+  margin-block-end: 1rem;
 }
 
 h3,
-.h3 {
-  font-size: 1.1875rem;
+.h3,
+.denali {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  margin-block-end: 1.25rem;
 }
 
 h4,
-.h4 {
-  font-size: 1.125rem;
+.h4,
+.kilimanjaro {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-block-end: 1.5rem;
 }
 
 h5,
-.h5 {
-  font-size: 1.0625rem;
+.h5,
+.elbrus {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-block-end: 1rem;
 }
 
 h6,
-.h6 {
+.h6,
+.vinson {
   font-size: 1rem;
+  line-height: 1.5;
+  margin-block-end: 1rem;
 }
 
-small {
+small,
+.kosciuszko {
   font-size: 80%;
   line-height: inherit;
 }
@@ -466,6 +510,10 @@ textarea {
 }
 
 /*------------------------------------*/
+.header-font-family {
+  font-family: var(--header-font-family);
+}
+
 .right-medium-up {
   text-align: left;
 }
@@ -485,6 +533,25 @@ textarea {
 
 .text-right {
   text-align: right;
+}
+
+/*------------------------------------*/
+.site-title {
+  font-family: var(--header-font-family);
+  font-size: var(--everest);
+  transition: var(--general-timing);
+  margin-block-end: 0;
+  align-self: flex-end;
+}
+
+.product_title {
+  font-family: var(--header-font-family);
+  text-transform: lowercase;
+}
+
+.product_title:first-letter,
+.product_title:first-line {
+  text-transform: uppercase;
 }
 
 #copyright {
@@ -513,6 +580,11 @@ a img {
 }
 
 /*------------------------------------*/
+.general-timing {
+  transition: var(--general-timing);
+}
+
+/*------------------------------------*/
 .sub-menu li > a {
   width: calc(100% - 1rem);
   margin: 0.5rem auto;
@@ -527,22 +599,6 @@ a img {
 #header_nav .menu-item a:hover {
   background: var(--tin-soldier);
   color: var(--secondary-color);
-}
-
-.floor a:hover {
-  background: gray;
-}
-
-.floor a:focus {
-  background: var(--industrial-revolution);
-}
-
-/*------------------------------------*/
-#copyright a {
-  color: var(--black-metal);
-}
-#copyright a:hover {
-  color: var(--black-metal);
 }
 
 /*------------------------------------*/
@@ -579,7 +635,7 @@ dl {
   list-style: none;
   margin-bottom: 1rem;
   list-style-position: outside;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .sub-menu li {
@@ -620,7 +676,7 @@ dl {
   z-index: 1;
   display: none;
   min-width: 200px;
-  border: 1px solid var(--tin-soldier);
+  border: 1px solid var(--kingly-cloud);
   border-radius: var(--vinson-radius);
   background: var(--brilliance);
   margin-left: -1.25rem;
@@ -660,8 +716,7 @@ dl {
 nav > div > ul {
   width: 100%;
   max-width: var(--albatross);
-  padding: 1rem;
-  margin: 0 auto;
+  margin-inline: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -675,15 +730,19 @@ nav > div > ul > li {
 
 nav > div > ul > li > a {
   display: block;
-  border-radius: 4px;
+  border-radius: var(--vinson-radius);
   padding-inline-start: 1rem;
   padding-inline-end: 1rem;
-  padding-block-start: 0.5rem;
-  padding-block-end: 0.5rem;
+  padding-block: 0.5rem;
+  transition: var(--general-timing);
 }
 
 nav > div > ul > li > a:hover {
   background-color: var(--tin-soldier);
+}
+
+nav > div > ul > li > a:focus {
+  background-color: var(--cold-grey);
 }
 
 .off-canvas > * {
@@ -790,6 +849,10 @@ body {
 }
 
 /*------------------------------------*/
+.inline-block {
+  display: inline-block;
+}
+
 .drop {
   margin-top: var(--global-margin);
 }
@@ -878,17 +941,6 @@ body {
   height: max-content;
   max-width: 7rem;
   max-height: 2rem;
-}
-
-.woocommerce .woocommerce-breadcrumb {
-  margin-top: 1rem;
-}
-
-.woocommerce #content div.product div.images,
-.woocommerce div.product div.images,
-.woocommerce-page #content div.product div.images,
-.woocommerce-page div.product div.images {
-  width: 100%;
 }
 
 /*------------------------------------*/
@@ -1000,6 +1052,7 @@ footer nav > div > ul {
   max-width: calc(100% - 2rem);
   margin: 0 auto;
   flex-flow: row wrap;
+  padding: 1rem;
 }
 footer nav > div > ul > li {
   width: max-content;
@@ -1013,9 +1066,6 @@ footer nav > div > ul > li {
 }
 
 /*------------------------------------*/
-#copyright {
-  padding-block: 1rem;
-}
 #copyright > div > ul > li {
   flex: 1 1 9rem;
 }
@@ -1029,11 +1079,12 @@ footer nav > div > ul > li {
 .product-page {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
 }
-@media screen and (min-width: 39.9988em) {
+@media (min-width: 40rem) {
   .product-page {
     grid-template-columns: 1fr 1.67fr;
+    gap: 3rem;
   }
 }
 .product-page > * {
@@ -1060,6 +1111,18 @@ footer nav > div > ul > li {
   justify-content: space-between;
   max-width: var(--albatross);
   margin: 0 auto;
+}
+.header input {
+  margin: 0;
+  height: calc(2.6875rem - 2px);
+  border: none;
+  background-color: var(--kingly-cloud);
+  color: var(--primary-color);
+  transition: var(--general-timing);
+}
+.header input:focus {
+  background-color: var(--cold-grey);
+  background-color: var(--brilliance);
 }
 
 /*------------------------------------*/
@@ -1518,12 +1581,9 @@ body {
 }
 
 .backed,
+.floor,
 .bottom-bar {
   background: var(--kingly-cloud);
-}
-
-.floor {
-  background: var(--tin-soldier);
 }
 
 .top-bar {
@@ -1543,6 +1603,9 @@ button,
 .button {
   background: var(--kingly-cloud);
   color: var(--primary-color);
+  border-radius: var(--vinson-radius);
+  transition: var(--general-timing);
+  margin-block-end: 1.5rem;
 }
 
 button {
@@ -1551,16 +1614,21 @@ button {
   -moz-appearance: none;
   appearance: none;
   border: 0;
-  border-radius: 4px;
-  background: transparent;
+  background: var(--kingly-cloud);
   line-height: 1;
   cursor: auto;
+  cursor: pointer;
 }
 
 button:hover,
 .button:hover {
-  cursor: pointer;
-  background: var(--kingly-cloud);
+  background: var(--tin-soldier);
+  color: var(--secondary-color);
+}
+
+button:focus,
+.button:focus {
+  background: var(--cold-grey);
 }
 
 .button-zero-margin {
@@ -1586,8 +1654,6 @@ header .button {
   font-size: 0.9rem !important;
   padding: 0.85em 1em !important;
   font-weight: normal !important;
-  border-radius: 4px !important;
-  color: var(--primary-color) !important;
 }
 
 /*------------------*/

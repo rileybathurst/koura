@@ -88,6 +88,7 @@ ins .amount {
 .woocommerce-page #content div.product div.images,
 .woocommerce-page div.product div.images {
   width: 100%;
+  border-radius: var(--vinson-radius);
 }
 
 .flex-viewport {
@@ -111,4 +112,23 @@ ins .amount {
 
 .woocommerce-tabs {
   display: none;
+}
+
+.flex-control-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  > * {
+    width: 100% !important;
+  }
+}
+
+.wc-block-components-notice-banner.is-info {
+  border-color: var(--primary-color) !important;
+  background-color: var(--kingly-cloud) !important;
+}
+
+.wc-block-components-notice-banner.is-info > svg {
+  background-color: var(--primary-color) !important;
 }

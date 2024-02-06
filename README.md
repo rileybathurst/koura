@@ -7,9 +7,13 @@ Theres something about the max-width: var(--albatross) breaking the footer
 I'm removing foundation and gulp
 Going back to a local sass build
 
-`% sass --watch scss/app.scss css/app.css`
+```bash
+sass --watch scss/app.scss css/app.css
+```
 
-`% sass --style=compressed scss/app.scss css/app.css`
+```bash
+sass --style=compressed scss/app.scss css/app.css
+```
 
 The way I'm developing will be with a pattern lab for hot module reload
 

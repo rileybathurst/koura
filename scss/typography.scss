@@ -5,6 +5,8 @@
 body {
   font-family: var(--body-font-family);
   font-weight: var(--featherweight);
+  font-size: 16px;
+  line-height: 1.5; // 24px
 }
 
 // TODO:
@@ -20,46 +22,63 @@ h5,
 .h5,
 h6,
 .h6 {
-  // TODO: move this to only where needed
-  font-family: var(--header-font-family);
   font-weight: normal;
-  line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 0.5rem;
 }
+
+// 24 36 48 60 72 96
 
 // TODO: needs a real type scale and heirachy
 h1,
-.h1 {
-  font-size: 1.5rem; // 24px
+.h1,
+.everest {
+  font-size: 2rem; // 32px
+  line-height: 2.5; // 40px
+  margin-block-end: 1.25rem; // 60px
 }
 
 h2,
-.h2 {
-  font-size: 1.25rem; // 20px
+.h2,
+.aconcagua {
+  font-size: 1.75rem; // 28px
+  line-height: 2; // 32px
+  margin-block-end: 1rem; // 48px
 }
 
 h3,
-.h3 {
-  font-size: 1.1875rem; // 19px
+.h3,
+.denali {
+  font-size: 1.5rem; // 24px
+  line-height: 1.75; // 28px
+  margin-block-end: 1.25rem; // 48px
 }
 
 h4,
-.h4 {
-  font-size: 1.125rem; // 18px
+.h4,
+.kilimanjaro {
+  font-size: 1.25rem; // 20px
+  line-height: 1.5; // 24px
+  margin-block-end: 1.5rem; // 48px
 }
 
 h5,
-.h5 {
-  font-size: 1.0625rem; // 17px this isnt worth doing
+.h5,
+.elbrus {
+  font-size: 1.125rem; // 18px
+  line-height: 1.5; // 24px
+  margin-block-end: 1rem; // 38px
 }
 
 h6,
-.h6 {
+.h6,
+.vinson {
   font-size: 1rem; // 16px
+  line-height: 1.5; // 24px
+  margin-block-end: 1rem; // 32px
 }
 
-small {
+small,
+.kosciuszko {
   font-size: 80%;
   line-height: inherit;
 }
@@ -107,6 +126,10 @@ textarea {
 
 /*------------------------------------*/
 
+.header-font-family {
+  font-family: var(--header-font-family);
+}
+
 .right-medium-up {
   text-align: left;
   @media (min-width: $breakpoint-medium) {
@@ -125,6 +148,26 @@ textarea {
 
 .text-right {
   text-align: right;
+}
+
+/*------------------------------------*/
+
+.site-title {
+  font-family: var(--header-font-family);
+  font-size: var(--everest);
+  transition: var(--general-timing);
+  margin-block-end: 0;
+  align-self: flex-end;
+}
+
+.product_title {
+  font-family: var(--header-font-family);
+  text-transform: lowercase;
+}
+
+.product_title:first-letter,
+.product_title:first-line {
+  text-transform: uppercase;
 }
 
 #copyright {

@@ -9,6 +9,10 @@ body {
 
 /*------------------------------------*/
 
+.inline-block {
+  display: inline-block;
+}
+
 .drop {
   margin-top: var(--global-margin);
 }
@@ -106,17 +110,6 @@ body {
     max-width: 7rem; // guess and check
     max-height: 2rem; // guess and check
   }
-}
-
-.woocommerce .woocommerce-breadcrumb {
-  margin-top: 1rem;
-}
-
-.woocommerce #content div.product div.images,
-.woocommerce div.product div.images,
-.woocommerce-page #content div.product div.images,
-.woocommerce-page div.product div.images {
-  width: 100%;
 }
 
 /*------------------------------------*/
@@ -254,6 +247,7 @@ footer nav > div > ul {
   max-width: calc(100% - 2rem);
   margin: 0 auto;
   flex-flow: row wrap;
+  padding: 1rem;
 
   > li {
     width: max-content;
@@ -271,8 +265,6 @@ footer nav > div > ul {
 /*------------------------------------*/
 
 #copyright {
-  padding-block: 1rem;
-
   > div > ul > li {
     flex: 1 1 9rem;
 
@@ -289,10 +281,11 @@ footer nav > div > ul {
 .product-page {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
 
-  @media screen and (min-width: 39.9988em) {
+  @media (min-width: $stork) {
     grid-template-columns: 1fr 1.67fr;
+    gap: 3rem;
   }
 
   > * {
@@ -323,6 +316,21 @@ footer nav > div > ul {
   justify-content: space-between;
   max-width: var(--albatross);
   margin: 0 auto;
+
+  // forcing to look like buttons this may be throughout
+  input {
+    margin: 0;
+    height: calc(2.6875rem - 2px); // this is based on the other inputs
+    border: none;
+    background-color: var(--kingly-cloud);
+    color: var(--primary-color);
+    transition: var(--general-timing);
+  }
+
+  input:focus {
+    background-color: var(--cold-grey);
+    background-color: var(--brilliance);
+  }
 }
 
 /*------------------------------------*/

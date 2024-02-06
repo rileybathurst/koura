@@ -10,6 +10,9 @@ button,
 .button {
   background: var(--kingly-cloud);
   color: var(--primary-color);
+  border-radius: var(--vinson-radius);
+  transition: var(--general-timing);
+  margin-block-end: 1.5rem;
 }
 
 button {
@@ -19,16 +22,21 @@ button {
   -moz-appearance: none;
   appearance: none;
   border: 0;
-  border-radius: 4px;
-  background: transparent;
+  background: var(--kingly-cloud);
   line-height: 1;
   cursor: auto;
+  cursor: pointer;
 }
 
 button:hover,
 .button:hover {
-  cursor: pointer;
-  background: var(--kingly-cloud);
+  background: var(--tin-soldier);
+  color: var(--secondary-color);
+}
+
+button:focus,
+.button:focus {
+  background: var(--cold-grey);
 }
 
 .button-zero-margin {
@@ -52,10 +60,8 @@ button:hover,
 }
 
 header .button {
-  // overirde defaults
+  // overirde defaults as specificity starts on the header
   font-size: 0.9rem !important;
   padding: 0.85em 1em !important;
   font-weight: normal !important;
-  border-radius: 4px !important;
-  color: var(--primary-color) !important;
 }

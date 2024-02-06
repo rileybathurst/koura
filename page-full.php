@@ -16,7 +16,7 @@
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x">
 						<div class="cell">
-							<h2 class="category-title"><?php the_title(); ?></h2>
+							<h2 class="page-title"><?php the_title(); ?></h2>
 							<?php the_post_thumbnail();
 							the_content(); ?>
 						</div>

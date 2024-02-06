@@ -101,7 +101,7 @@
 					<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?></a></p>
 				<?php }; ?>
 
-				<p class="text-right global-padding-top show-for-medium">Call us on <a href="tel:021 112 7683">021 112 7683</a></p>
+				<p class="text-right global-padding-top show-for-medium">Call us on<a href="tel:021 112 7683">021 112 7683</a></p>
 		</div><!-- top-bar -->
 
 	<header class="header">
@@ -111,14 +111,14 @@
 		if ( file_exists ($logo) ) { ?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/img/' . get_bloginfo( 'name' ) . '.png'; ?>" alt="<?php bloginfo ('name') ?>"></a>
 		<?php } else { if ( is_front_page() && is_home() ) : ?>
-			<h1><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></strong></h1>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></h1>
 		<?php else : ?>
 			<!-- // ? why does this become h3? -->
-			<h3 class="h1"><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></strong></a></h3>
+			<h3 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></h3>
 		<?php endif; } ?>
 
 			<div>
-				<span class="show-for-medium"><?php get_search_form(); ?></span>
+				<span class="show-for-medium inline-block"><?php get_search_form(); ?></span>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>sale" class="button button-zero-margin show-for-medium">Sale</a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" class="button button-zero-margin">Cart</a>
 				
@@ -126,22 +126,20 @@
 			</div><!--  -->
 	</header><!-- grid-container -->
 
-	<div class="backed show-for-large">
+	<div class="show-for-large">
 		<?php if ( has_nav_menu( 'primary' ) ) { ?>
 			<nav>
 				<?php
 					// Primary navigation menu.
 					wp_nav_menu( array(
 						'theme_location'	=> 'primary',
-						'items_wrap'		=> '<ul id="header_nav" class="dropdown menu">%3$s</ul>', // more complex because it needs the outside of the class
+						// more complex because it needs the outside of the class
+						'items_wrap'		=> '<ul id="header_nav" class="dropdown menu">%3$s</ul>',
 					) );
 				?>
 			</nav>
 		<?php } ?>
-	</div><!-- grid-container backed -->
-
-	<hr class="no-margin-vertical max-width-100">
-
+	</div>
 
 <!-- <script>
 	console.log('header');

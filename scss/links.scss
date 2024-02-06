@@ -20,6 +20,12 @@ a img {
 
 /*------------------------------------*/
 
+.general-timing {
+  transition: var(--general-timing);
+}
+
+/*------------------------------------*/
+
 .sub-menu li > a {
   width: calc(100% - 1rem);
   margin: 0.5rem auto;
@@ -34,27 +40,6 @@ a img {
 #header_nav .menu-item a:hover {
   background: var(--tin-soldier);
   color: var(--secondary-color);
-}
-
-.floor a:hover {
-  background: gray;
-}
-
-.floor a:focus {
-  background: var(--industrial-revolution);
-}
-
-/*------------------------------------*/
-
-#copyright {
-  a {
-    color: var(--black-metal);
-  }
-
-  // ? whats the difference
-  a:hover {
-    color: var(--black-metal);
-  }
 }
 
 /*------------------------------------*/
