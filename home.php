@@ -24,7 +24,7 @@
 		<?php endwhile; ?><!-- while have posts -->
 
 		<?php else : ?>
-			<div class="grid-container">
+			<div class="">
 				<div class="grid-x grid-padding-x">
 					<div class="cell">
 
@@ -36,7 +36,7 @@
 						<p>How about head back to the <a href="/" title="home">home page</a> and start again</p>
 					</div><!--.entry-->
 				</div><!-- grid-x -->
-			</div><!-- grid-container -->
+			</div><!--  -->
 
 	<?php endif; ?><!-- if have posts -->
 </main>

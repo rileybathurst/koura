@@ -2,7 +2,7 @@
 
 <!-- Start the main container -->
 <div class="container" role="document">
-    <div class="grid-container"><!-- post grid-container -->
+    <div class=""><!-- post  -->
         <div class="grid-x grid-padding-x drop">
             
             <div class="cell">
@@ -61,16 +61,14 @@
                 <?php else : ?>
 
                     <div class="cell">
-
                         <p>Hmmm, seems like what you were looking for isn't here.  You might want to give it another try - the server might have hiccuped - or maybe you even spelled something wrong (though it's more likely <strong>I</strong> did).</p>
                         <p>How about head back to the <a href="/" title="home">home page</a> and start again</p>
+                    </div><
 
-                    </div><!-- .cell -->
-
-            <?php endif; ?><!-- if have posts -->
+            <?php endif; ?>
 	
-        </div><!-- .grid-x -->
-    </div><!-- .grid-container -->
-</div><!-- .container -->
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>

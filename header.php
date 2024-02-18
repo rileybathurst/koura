@@ -74,7 +74,7 @@
 	<!-- <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right"> -->
 	<div id="offCanvas" class="off-canvas">
 		<button id="close-top" class="close-menu">Close Menu</button>
-		<h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo bloginfo( 'name' ); ?></a></h2>
+		<!-- <h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo bloginfo( 'name' ); ?></a></h2> -->
 		<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>about">About</a></p>
 		<hr />
 		<?php if ( has_nav_menu( 'primary' ) ) { ?>
@@ -124,7 +124,7 @@
 				
 				<button id="offCanvasToggle" class="button button-zero-margin hide-for-large">Menu</button>
 			</div><!--  -->
-	</header><!-- grid-container -->
+	</header><!--  -->
 
 	<div class="show-for-large">
 		<?php if ( has_nav_menu( 'primary' ) ) { ?>

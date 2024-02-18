@@ -13,7 +13,7 @@
 		while (have_posts()) : the_post(); ?>
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<div class="grid-container">
+				<div class="">
 					<div class="grid-x grid-padding-x">
 						<div class="cell">
 							<h2 class="page-title"><?php the_title(); ?></h2>
@@ -27,7 +27,7 @@
 		<?php endwhile; // while have posts
 
 	} else { ?>
-		<div class="grid-container">
+		<div class="">
 			<div class="grid-x grid-padding-x">
 				<div class="cell">
 

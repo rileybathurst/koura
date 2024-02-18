@@ -13,16 +13,14 @@ body {
   background: var(--brilliance);
 }
 
-.backed,
-.floor,
-.bottom-bar {
+footer {
   background: var(--kingly-cloud);
 }
 
 .top-bar {
   background: var(--kingly-cloud);
-  box-shadow: 0 0 0 100vmax var(--kingly-cloud);
-  clip-path: inset(0 -100vmax);
+  // box-shadow: 0 0 0 100vmax var(--kingly-cloud);
+  // clip-path: inset(0 -100vmax);
   color: var(--black-out);
 
   // testing

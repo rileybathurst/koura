@@ -87,14 +87,12 @@ body {
 #payments {
   display: flex;
   max-width: 30rem; // guess and check
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 0.9375rem;
-  padding-left: 0.9375rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  padding-block-end: 2rem;
 
   img,
   svg {
@@ -175,6 +173,8 @@ ul.products::before {
 
 /*------------------------------------*/
 
+// ! TODO: this is ridiculously old
+
 .grid-x {
   max-width: var(--albatross);
   margin-left: auto;
@@ -209,8 +209,11 @@ ul.products::before {
 main {
   width: calc(100% - 2rem);
   max-width: var(--albatross);
-  margin: 0 auto;
-  padding: 1rem;
+  margin-inline: auto;
+
+  @media (min-width: 40rem) {
+    padding: 1rem;
+  }
 }
 
 .top-bar {
@@ -221,6 +224,8 @@ main {
   margin: 0 auto;
   padding-inline: 1rem;
   justify-content: space-between;
+  border-bottom-right-radius: var(--vinson-radius);
+  border-bottom-left-radius: var(--vinson-radius);
 
   p {
     padding-block: 0.75rem;
@@ -247,7 +252,7 @@ footer nav > div > ul {
   max-width: calc(100% - 2rem);
   margin: 0 auto;
   flex-flow: row wrap;
-  padding: 1rem;
+  padding-block: 1rem;
 
   > li {
     width: max-content;

@@ -33,7 +33,7 @@ h1,
 .h1,
 .everest {
   font-size: 2rem; // 32px
-  line-height: 2.5; // 40px
+  line-height: 1.5; // 40px
   margin-block-end: 1.25rem; // 60px
 }
 
@@ -124,6 +124,10 @@ textarea {
   font-family: inherit;
 }
 
+label {
+  text-align: start;
+}
+
 /*------------------------------------*/
 
 .header-font-family {
@@ -176,4 +180,19 @@ textarea {
 
 .topbar {
   font-family: --body-font-family;
+}
+
+.page-title {
+  font-family: var(--header-font-family);
+}
+
+/*------------------------------------*/
+
+.woocommerce-loop-product__title {
+  font-size: var(--vinson);
+  line-height: 1.5;
+}
+
+.related h2 {
+  font-family: var(--header-font-family);
 }

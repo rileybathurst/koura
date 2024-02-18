@@ -36,14 +36,13 @@
   top: auto; // maybe some unset or whatever else to kill this
   margin: 0;
   border-bottom: none;
-  background: var(--kingly-cloud);
 
   > li {
-    border-bottom: 1px solid var(--tin-soldier);
-
     > a {
+      background-color: hsl(0, 0%, 92.5%);
+      background-color: var(--kingly-cloud);
+      border-radius: 4px;
       display: block;
-      padding-block: 0.5rem;
     }
 
     > a:hover {
@@ -104,6 +103,7 @@ nav > div > ul > li > a:focus {
 
 .off-canvas nav > div > ul {
   flex-flow: column wrap;
+  gap: 0;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -114,6 +114,7 @@ nav > div > ul > li > a:focus {
     border-bottom: 1px solid lightgray;
 
     > a {
+      padding-block-start: 0;
       padding-inline: 0;
     }
   }
@@ -126,9 +127,11 @@ nav > div > ul > li > a:focus {
 
   > p {
     text-align: center;
+    margin-block-end: 0.25rem;
   }
   > hr {
     width: calc(100% - 2rem);
+    margin-block-end: 0.25rem;
   }
 }
 

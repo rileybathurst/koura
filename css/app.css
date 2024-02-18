@@ -282,9 +282,9 @@ td {
 
 .woocommerce nav.woocommerce-pagination ul li {
   border: none;
-  margin: var(--global-margin);
+  margin: 0.5rem;
   background: var(--kingly-cloud);
-  border-radius: 0;
+  border-radius: var(--vinson-radius);
 }
 
 .woocommerce nav.woocommerce-pagination ul li a,
@@ -326,6 +326,7 @@ td {
 del .amount,
 ins .amount {
   color: gray;
+  text-decoration-color: var(--primary-color);
 }
 
 .product .product_meta {
@@ -354,7 +355,9 @@ ins .amount {
 
 .variations .label,
 .variations .value {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
   margin-bottom: 1em;
 }
 
@@ -363,6 +366,7 @@ ins .amount {
 }
 
 .woocommerce-LoopProduct-link {
+  transition: var(--general-timing);
   display: grid;
   justify-content: center;
 }
@@ -387,6 +391,52 @@ ins .amount {
 
 .wc-block-components-notice-banner.is-info > svg {
   background-color: var(--primary-color) !important;
+}
+
+.collapsible__content ul {
+  margin-block-end: 0;
+}
+
+/*------------------------------------*/
+.woocommerce span.onsale {
+  background-color: var(--primary-color);
+}
+
+.woocommerce span.onsale:hover {
+  color: var(--secondary-color);
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button {
+  margin-block-end: 1.5rem;
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt.disabled {
+  background-color: var(--kingly-cloud);
+  color: grey;
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt {
+  background-color: var(--primary-color);
+  color: var(--brilliance);
+  box-shadow: var(--troposphere);
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover {
+  background-color: var(--secondary-color);
+  color: var(--kingly-cloud);
+}
+
+.flex-control-thumbs li img {
+  border-radius: var(--vinson-radius);
+}
+
+/*------------------------------------*/
+.related a img {
+  transition: var(--general-timing);
+}
+.related a img:hover {
+  /* sort of match a white background to the box below */
+  filter: brightness(0.875);
 }
 
 /*------------------*/
@@ -418,7 +468,7 @@ h1,
 .h1,
 .everest {
   font-size: 2rem;
-  line-height: 2.5;
+  line-height: 1.5;
   margin-block-end: 1.25rem;
 }
 
@@ -509,6 +559,10 @@ textarea {
   font-family: inherit;
 }
 
+label {
+  text-align: start;
+}
+
 /*------------------------------------*/
 .header-font-family {
   font-family: var(--header-font-family);
@@ -562,6 +616,20 @@ textarea {
   font-family: --body-font-family;
 }
 
+.page-title {
+  font-family: var(--header-font-family);
+}
+
+/*------------------------------------*/
+.woocommerce-loop-product__title {
+  font-size: var(--vinson);
+  line-height: 1.5;
+}
+
+.related h2 {
+  font-family: var(--header-font-family);
+}
+
 /*------------------*/
 /*------------------*/
 a {
@@ -590,6 +658,12 @@ a img {
   margin: 0.5rem auto;
 }
 
+.off-canvas .sub-menu li > a {
+  width: calc(100% - 1rem);
+  margin-block: 0.25rem;
+  margin-inline: auto;
+}
+
 #header_nav .menu-item a {
   text-align: center;
   border-radius: var(--vinson-radius);
@@ -607,10 +681,11 @@ a img {
   padding-inline: 1rem;
   padding-block: 0.5rem;
   background: hsla(0, 0%, 25%, 0.9);
+  color: var(--brilliance);
+  transition: var(--general-timing);
 }
 .featured a:hover {
-  background: hsla(0, 0%, 97.5%, 0.8);
-  background: rgba(255, 255, 255, 0.8);
+  background: hsla(0, 0%, 25%, 0.8);
 }
 
 /*------------------------------------*/
@@ -636,10 +711,6 @@ dl {
   margin-bottom: 1rem;
   list-style-position: outside;
   line-height: 1.5;
-}
-
-.sub-menu li {
-  list-style: none;
 }
 
 .off-canvas .menu {
@@ -689,14 +760,12 @@ dl {
   top: auto;
   margin: 0;
   border-bottom: none;
-  background: var(--kingly-cloud);
-}
-.off-canvas .sub-menu > li {
-  border-bottom: 1px solid var(--tin-soldier);
 }
 .off-canvas .sub-menu > li > a {
+  background-color: hsl(0, 0%, 92.5%);
+  background-color: var(--kingly-cloud);
+  border-radius: 4px;
   display: block;
-  padding-block: 0.5rem;
 }
 .off-canvas .sub-menu > li > a:hover {
   background: var(--tin-soldier);
@@ -751,6 +820,7 @@ nav > div > ul > li > a:focus {
 
 .off-canvas nav > div > ul {
   flex-flow: column wrap;
+  gap: 0;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -761,6 +831,7 @@ nav > div > ul > li > a:focus {
   border-bottom: 1px solid lightgray;
 }
 .off-canvas nav > div > ul > li > a {
+  padding-block-start: 0;
   padding-inline: 0;
 }
 
@@ -771,9 +842,11 @@ nav > div > ul > li > a:focus {
 }
 .off-canvas > p {
   text-align: center;
+  margin-block-end: 0.25rem;
 }
 .off-canvas > hr {
   width: calc(100% - 2rem);
+  margin-block-end: 0.25rem;
 }
 
 .offCanvas-open {
@@ -921,14 +994,12 @@ body {
 #payments {
   display: flex;
   max-width: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 0.9375rem;
-  padding-left: 0.9375rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  padding-block-end: 2rem;
 }
 #payments img,
 #payments svg {
@@ -1019,8 +1090,12 @@ ul.products::before {
 main {
   width: calc(100% - 2rem);
   max-width: var(--albatross);
-  margin: 0 auto;
-  padding: 1rem;
+  margin-inline: auto;
+}
+@media (min-width: 40rem) {
+  main {
+    padding: 1rem;
+  }
 }
 
 .top-bar {
@@ -1031,6 +1106,8 @@ main {
   margin: 0 auto;
   padding-inline: 1rem;
   justify-content: space-between;
+  border-bottom-right-radius: var(--vinson-radius);
+  border-bottom-left-radius: var(--vinson-radius);
 }
 .top-bar p {
   padding-block: 0.75rem;
@@ -1052,7 +1129,7 @@ footer nav > div > ul {
   max-width: calc(100% - 2rem);
   margin: 0 auto;
   flex-flow: row wrap;
-  padding: 1rem;
+  padding-block: 1rem;
 }
 footer nav > div > ul > li {
   width: max-content;
@@ -1580,16 +1657,12 @@ body {
   background: var(--brilliance);
 }
 
-.backed,
-.floor,
-.bottom-bar {
+footer {
   background: var(--kingly-cloud);
 }
 
 .top-bar {
   background: var(--kingly-cloud);
-  box-shadow: 0 0 0 100vmax var(--kingly-cloud);
-  clip-path: inset(0 -100vmax);
   color: var(--black-out);
 }
 

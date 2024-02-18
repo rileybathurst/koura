@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="grid-container">     
+<div class="">     
     <div class="grid-x grid-padding-x">
 	   <div class="cell">
 
@@ -13,7 +13,7 @@
 	</div>
 </div>
 
-<div class="grid-container">     
+<div class="">     
     <div class="grid-x grid-padding-x global-padding-vertical">
 	   <div class="cell">
            <p class="text-center">Lets try and start from <a href="<?php echo esc_url( home_url( '/' ) ); ?>">home</a>.</p>

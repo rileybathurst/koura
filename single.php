@@ -6,7 +6,7 @@ if (have_posts()) {
 
 	<?php endwhile;
 } else { ?>
-	<div class="grid-container" role="document">
+	<div class="" role="document">
 		<div class="grid-x grid-padding-x">
 			<div class="cell">
 				<p>Hmmm, seems like what you were looking for isn't here.  You might want to give it another try - the server might have hiccuped - or maybe you even spelled something wrong (though it's more likely <strong>I</strong> did).</p>

@@ -31,6 +31,12 @@ a img {
   margin: 0.5rem auto;
 }
 
+.off-canvas .sub-menu li > a {
+  width: calc(100% - 1rem);
+  margin-block: 0.25rem;
+  margin-inline: auto;
+}
+
 #header_nav .menu-item a {
   text-align: center;
   border-radius: var(--vinson-radius);
@@ -51,12 +57,12 @@ a img {
     padding-block: 0.5rem;
     // --raven-black
     background: hsla(0, 0%, 25%, 0.9);
+    color: var(--brilliance);
+    transition: var(--general-timing);
   }
 
   a:hover {
-    // --brilliance
-    background: hsla(0, 0%, 97.5%, 0.8);
-    background: rgba(255, 255, 255, 0.8);
+    background: hsla(0, 0%, 25%, 0.8);
   }
 }
 

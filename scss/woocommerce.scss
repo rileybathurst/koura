@@ -16,9 +16,9 @@
 
 .woocommerce nav.woocommerce-pagination ul li {
   border: none;
-  margin: var(--global-margin);
+  margin: 0.5rem;
   background: var(--kingly-cloud);
-  border-radius: 0;
+  border-radius: var(--vinson-radius);
 }
 
 // span needed for current
@@ -68,6 +68,7 @@
 del .amount,
 ins .amount {
   color: gray;
+  text-decoration-color: var(--primary-color);
 }
 
 // removes sku and duplicate category tags
@@ -97,7 +98,9 @@ ins .amount {
 
 .variations .label,
 .variations .value {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
   margin-bottom: 1em;
 }
 
@@ -106,6 +109,7 @@ ins .amount {
 }
 
 .woocommerce-LoopProduct-link {
+  transition: var(--general-timing);
   display: grid;
   justify-content: center;
 }
@@ -131,4 +135,62 @@ ins .amount {
 
 .wc-block-components-notice-banner.is-info > svg {
   background-color: var(--primary-color) !important;
+}
+
+.collapsible__content ul {
+  margin-block-end: 0;
+}
+
+/*------------------------------------*/
+
+.woocommerce span.onsale {
+  background-color: var(--primary-color);
+}
+
+.woocommerce span.onsale:hover {
+  color: var(--secondary-color);
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles))
+  button.button {
+  margin-block-end: 1.5rem;
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles))
+  button.button.alt.disabled {
+  background-color: var(--kingly-cloud);
+  color: grey;
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles))
+  button.button.alt {
+  background-color: var(--primary-color);
+  color: var(--brilliance);
+  box-shadow: var(--troposphere);
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles))
+  button.button.alt:hover {
+  background-color: var(--secondary-color);
+  color: var(--kingly-cloud);
+}
+
+.flex-control-thumbs li {
+  // box-shadow: var(--troposphere); /* TODO: gets clipped */
+  img {
+    border-radius: var(--vinson-radius);
+  }
+}
+
+/*------------------------------------*/
+
+.related {
+  a img {
+    transition: var(--general-timing);
+  }
+
+  a img:hover {
+    /* sort of match a white background to the box below */
+    filter: brightness(0.875);
+  }
 }

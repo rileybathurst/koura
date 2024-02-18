@@ -8,7 +8,7 @@
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<div class="grid-container">
+				<div class="">
 					<div class="grid-x grid-padding-x">
 
 						<div class="cell">
@@ -27,7 +27,7 @@
 		<?php endwhile; // while have posts
 
 	} else { ?>
-		<div class="grid-container">
+		<div class="">
 			<div class="grid-x grid-padding-x">
 				<div class="cell">
 
