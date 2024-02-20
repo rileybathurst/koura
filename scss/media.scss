@@ -60,9 +60,7 @@ img {
 
 /*------------------------------------*/
 
-.featured {
-  > img,
-  figure {
-    width: 100%;
-  }
+/* single product image */
+.flex-viewport {
+  border-radius: var(--vinson-radius);
 }

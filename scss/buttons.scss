@@ -8,6 +8,10 @@
 
 button,
 .button {
+  font-weight: normal;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.85em 1em;
   background: var(--kingly-cloud);
   color: var(--primary-color);
   border-radius: var(--vinson-radius);
@@ -16,15 +20,8 @@ button,
 }
 
 button {
-  padding: 0;
-  // TODO: test these
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border: 0;
-  background: var(--kingly-cloud);
-  line-height: 1;
-  cursor: auto;
   cursor: pointer;
 }
 

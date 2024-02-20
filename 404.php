@@ -1,28 +1,26 @@
 <?php get_header(); ?>
 
-<div class="">     
-    <div class="grid-x grid-padding-x">
-	   <div class="cell">
 
-            <div class="flex">
-                <img data-interchange="[<?php echo content_url(); ?>/uploads/2018/02/missing-small.jpg, small], [<?php echo content_url(); ?>/uploads/2018/02/missing-medium.jpg, medium], [<?php echo content_url(); ?>/uploads/2018/02/missing-large.jpg, large]">
-                <h2><a href="<?php echo home_url(); ?>/" title="home" class="over-flex">Oh no! we're lost.</a></h2>
-            </div>
-        
-        </div>
-	</div>
-</div>
+<section>
+    <!-- // TODO: run this the same as the home page -->
+    <div class="cover">
+        <!-- // TODO: check the sizes on these -->
+        <picture>
+            <source srcset="<?php echo content_url(); ?>/uploads/2018/02/missing-large.jpg" media="(min-width: 1200px)" />
+            <source srcset="<?php echo content_url(); ?>/uploads/2018/02/missing-medium.jpg" media="(min-width: 600px)" />
+            <img src="<?php echo content_url(); ?>/uploads/2018/02/missing-small.jpg " alt="missing" />
+        </picture>
 
-<div class="">     
-    <div class="grid-x grid-padding-x global-padding-vertical">
-	   <div class="cell">
-           <p class="text-center">Lets try and start from <a href="<?php echo esc_url( home_url( '/' ) ); ?>">home</a>.</p>
-        </div>
+        <h2>
+            <a href="<?php echo home_url(); ?>/" title="home" class="over-flex">
+                This page is out of fashion.
+            </a>
+        </h2>
     </div>
-</div>
+</section>
+
+<section>
+    <p class="text-center">Please go back to the <a href="<?php echo esc_url( home_url( '/' ) ); ?>">homepage</a> and try again.</p>
+</section>
 
 <?php get_footer(); ?>
-
-<!-- <script>
-	console.log('404');
-</script> -->

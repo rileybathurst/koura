@@ -130,10 +130,6 @@ label {
 
 /*------------------------------------*/
 
-.header-font-family {
-  font-family: var(--header-font-family);
-}
-
 .right-medium-up {
   text-align: left;
   @media (min-width: $breakpoint-medium) {
@@ -169,6 +165,10 @@ label {
   text-transform: lowercase;
 }
 
+.category-title {
+  font-family: var(--header-font-family);
+}
+
 .product_title:first-letter,
 .product_title:first-line {
   text-transform: uppercase;
@@ -190,6 +190,7 @@ label {
 
 .woocommerce-loop-product__title {
   font-size: var(--vinson);
+  font-family: var(--header-font-family);
   line-height: 1.5;
 }
 

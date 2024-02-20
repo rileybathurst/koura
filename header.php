@@ -11,33 +11,10 @@
 
 	<?php wp_head(); ?>
 
-	<!-- // * deprecated -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12917302-14"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-12917302-14');
-	</script> -->
-
-	<!-- Google Analytics 4 tag (gtag.js) -->
-	<!-- using jetpack stats -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XC8GY1CWW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2XC8GY1CWW');
-</script> -->
-
-	<!-- recaptcha -->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 	<!-- removed this from header when local dev it breaks -->
-<?php
+	<?php
 	// Open Graph Metadata
 	// currently just hacked together to see if this fixes the instagram shopping not as a long term code
 		if( is_product() ){
@@ -61,7 +38,7 @@
 			<meta property="product:retailer_item_id" content="<?php echo $fb_retailer_item_id; ?>">
 			<!-- End Open Graph Metadata -->
 
-		<!-- end of if( is_product()) -->
+
 	<?php } ?>
 
 	<meta name="theme-color" content="#e6e6e6">
@@ -70,8 +47,6 @@
 
 <body <?php body_class(); ?>>
 
-	<!-- this is the off canvas aka small menu -->
-	<!-- <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right"> -->
 	<div id="offCanvas" class="off-canvas">
 		<button id="close-top" class="close-menu">Close Menu</button>
 		<!-- <h2><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo bloginfo( 'name' ); ?></a></h2> -->
@@ -89,23 +64,21 @@
 			</nav>
 		<?php } ?>
 		<button id="close-bottom" class="close-menu">Close Menu</button>
-	</div><!-- off canvas -->
+	</div>
 
 		<div class="top-bar">
-				<!-- option for empty cart -->
 				<?php if( WC()->cart->get_cart_contents_count() == 0 ) { ?>
 					<p>All prices are in New Zealand dollars.</p>
 
-				<!-- cart displayed once products added -->
 				<?php } else { ?>
 					<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>cart" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?></a></p>
 				<?php }; ?>
 
+				<!-- // TODO: make this a single class -->
 				<p class="text-right global-padding-top show-for-medium">Call us on<a href="tel:021 112 7683">021 112 7683</a></p>
-		</div><!-- top-bar -->
+		</div>
 
 	<header class="header">
-		<!-- this should be the if has been customized -->
 		<?php $logo = get_template_directory() . '/img/' . get_bloginfo( 'name' ) . '.png';
 
 		if ( file_exists ($logo) ) { ?>
@@ -113,7 +86,6 @@
 		<?php } else { if ( is_front_page() && is_home() ) : ?>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></h1>
 		<?php else : ?>
-			<!-- // ? why does this become h3? -->
 			<h3 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class=""><?php echo bloginfo( 'name' ); ?></a></h3>
 		<?php endif; } ?>
 
@@ -130,7 +102,6 @@
 		<?php if ( has_nav_menu( 'primary' ) ) { ?>
 			<nav>
 				<?php
-					// Primary navigation menu.
 					wp_nav_menu( array(
 						'theme_location'	=> 'primary',
 						// more complex because it needs the outside of the class
@@ -140,7 +111,3 @@
 			</nav>
 		<?php } ?>
 	</div>
-
-<!-- <script>
-	console.log('header');
-</script> -->

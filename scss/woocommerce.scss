@@ -144,11 +144,13 @@ ins .amount {
 /*------------------------------------*/
 
 .woocommerce span.onsale {
+  transition: var(--general-timing);
   background-color: var(--primary-color);
 }
 
 .woocommerce span.onsale:hover {
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--tin-soldier);
 }
 
 .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles))

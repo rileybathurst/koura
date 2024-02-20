@@ -33,3 +33,16 @@ footer {
   // box-shadow: 0 0 0 100vmax hsl(358, 25%, 87.5%);
   // clip-path: inset(0 -100vmax);
 }
+
+.products > .product {
+  // border: 1px solid var(--golden);
+
+  .card-section {
+    background-color: var(--kingly-cloud);
+    transition: var(--general-timing);
+  }
+}
+
+.woocommerce-result-count {
+  color: gray;
+}

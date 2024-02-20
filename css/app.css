@@ -211,6 +211,10 @@ td {
   --primary-color: hsl(358, 25%, 45%);
   --secondary-color: hsl(358, 37.5%, 25%);
   --alert-color: hsl(8, 62.5%, 50%);
+  /*------------------------------------*/
+  /* testing */
+  --korua: hsl(40, 60%, 97.5%);
+  --golden: hsl(40, 20%, 87.5%);
   /*------------------*/
   /*------------------*/
   --black-metal: hsl(0, 0%, 2.5%);
@@ -248,6 +252,7 @@ td {
   --kosciuszko: 0.8rem; /* 7,310ft Australia */
   /*------------------*/
   /*------------------*/
+  --vulture: 30rem;
   --albatross: 75rem;
   /*------------------*/
   /*------------------*/
@@ -399,11 +404,13 @@ ins .amount {
 
 /*------------------------------------*/
 .woocommerce span.onsale {
+  transition: var(--general-timing);
   background-color: var(--primary-color);
 }
 
 .woocommerce span.onsale:hover {
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--tin-soldier);
 }
 
 .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button {
@@ -564,10 +571,6 @@ label {
 }
 
 /*------------------------------------*/
-.header-font-family {
-  font-family: var(--header-font-family);
-}
-
 .right-medium-up {
   text-align: left;
 }
@@ -603,6 +606,10 @@ label {
   text-transform: lowercase;
 }
 
+.category-title {
+  font-family: var(--header-font-family);
+}
+
 .product_title:first-letter,
 .product_title:first-line {
   text-transform: uppercase;
@@ -623,6 +630,7 @@ label {
 /*------------------------------------*/
 .woocommerce-loop-product__title {
   font-size: var(--vinson);
+  font-family: var(--header-font-family);
   line-height: 1.5;
 }
 
@@ -676,15 +684,15 @@ a img {
 }
 
 /*------------------------------------*/
-.featured a {
+.cover a {
   border-radius: 4px;
   padding-inline: 1rem;
   padding-block: 0.5rem;
-  background: hsla(0, 0%, 25%, 0.9);
+  background-color: hsla(0, 0%, 25%, 0.9);
   color: var(--brilliance);
   transition: var(--general-timing);
 }
-.featured a:hover {
+.cover a:hover {
   background: hsla(0, 0%, 25%, 0.8);
 }
 
@@ -700,6 +708,12 @@ a img {
 
 .top-bar a:hover {
   background: var(--tin-soldier);
+}
+
+/*------------------------------------*/
+/* // TODO: more needs to move here so all happens at once */
+.card:hover .card-section {
+  background-color: var(--brilliance);
 }
 
 /*------------------*/
@@ -909,9 +923,9 @@ img {
 }
 
 /*------------------------------------*/
-.featured > img,
-.featured figure {
-  width: 100%;
+/* single product image */
+.flex-viewport {
+  border-radius: var(--vinson-radius);
 }
 
 /*------------------*/
@@ -919,6 +933,36 @@ img {
 body {
   margin: 0;
   padding: 0;
+}
+
+main {
+  width: calc(100% - 2rem);
+  max-width: var(--albatross);
+  margin-inline: auto;
+}
+@media (min-width: 40rem) {
+  main {
+    padding: 1rem;
+  }
+}
+
+section,
+.two-fold {
+  max-width: var(--albatross);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-block-end: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+section > *,
+.two-fold > * {
+  flex: 1 1 30rem;
+}
+
+section section {
+  padding-inline: 0;
 }
 
 /*------------------------------------*/
@@ -926,48 +970,11 @@ body {
   display: inline-block;
 }
 
-.drop {
-  margin-top: var(--global-margin);
-}
-
-.grid-padding-collapse {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.flex {
-  display: flex;
-  flex-direction: column; /* stack flex items vertically */
-  position: relative;
-}
-
-.no-margin-vertical {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.global-padding {
-  padding: var(--global-padding);
-}
-
-.global-padding-vertical {
-  padding-top: var(--global-padding);
-  padding-bottom: var(--global-padding);
-}
-
 .global-padding-top {
   padding-top: var(--global-padding);
 }
 
-.no-padding-vertical {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.max-width-100 {
-  max-width: 100%;
-}
-
+/*------------------------------------*/
 .off-canvas {
   display: flex;
   flex-flow: column wrap;
@@ -975,25 +982,10 @@ body {
   z-index: 9;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/*------------------------------------*/
-.position-right {
-  top: 0;
-  right: 0;
-  height: 100%;
-  overflow-y: auto;
-  width: 250px;
-  transform: translateX(250px);
-}
-
 /*------------------------------------*/
 #payments {
   display: flex;
-  max-width: 30rem;
+  max-width: var(--vulture);
   margin-inline: auto;
   padding-inline: 1rem;
   gap: 1rem;
@@ -1017,11 +1009,16 @@ body {
 /*------------------------------------*/
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
   gap: 1rem !important;
   width: 100% !important;
   height: 100% !important;
   align-items: stretch;
+}
+@media screen and (min-width: 40rem) {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  }
 }
 .products > .product {
   margin: 0 !important;
@@ -1033,9 +1030,10 @@ body {
 }
 .products > .product > * > .card-image {
   width: 100%;
-  height: auto; /* this can be too small but I dont know how to make it better yet */
+  height: auto; /* // TODO: this can be too small but I dont know how to make it better yet */
   aspect-ratio: 2/3;
   display: block;
+  border-radius: var(--vinson-radius);
 }
 .products > .product > * > .card-image img {
   height: 100% !important;
@@ -1043,6 +1041,8 @@ body {
 }
 .products > .product > * > .card-section {
   padding: 1rem !important;
+  border-bottom-left-radius: var(--vinson-radius);
+  border-bottom-right-radius: var(--vinson-radius);
 }
 
 .products::after {
@@ -1058,46 +1058,6 @@ ul.products::before {
 }
 
 /*------------------------------------*/
-.grid-x {
-  max-width: var(--albatross);
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.cell {
-  width: 100%;
-}
-
-.grid-padding-x {
-  gap: 1rem;
-  padding-inline: 1rem;
-}
-
-.featured {
-  display: grid;
-  place-items: center;
-}
-.featured > * {
-  grid-row: 1;
-  grid-column: 1;
-}
-.featured p {
-  margin-bottom: 0;
-}
-
-main {
-  width: calc(100% - 2rem);
-  max-width: var(--albatross);
-  margin-inline: auto;
-}
-@media (min-width: 40rem) {
-  main {
-    padding: 1rem;
-  }
-}
-
 .top-bar {
   display: flex;
   flex-wrap: wrap;
@@ -1121,9 +1081,15 @@ main {
   background: var(--tin-soldier);
 }
 
-/*------------------------------------*\
-	// #footer
-\*------------------------------------*/
+/*------------------------------------*/
+footer {
+  max-width: var(--albatross);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  border-top-right-radius: var(--vinson-radius);
+  border-top-left-radius: var(--vinson-radius);
+}
+
 footer nav > div > ul {
   justify-content: center !important;
   max-width: calc(100% - 2rem);
@@ -1137,12 +1103,6 @@ footer nav > div > ul > li {
   flex-grow: unset !important;
 }
 
-/*------------------------------------*/
-.floor {
-  padding-bottom: 3rem;
-}
-
-/*------------------------------------*/
 #copyright > div > ul > li {
   flex: 1 1 9rem;
 }
@@ -1177,6 +1137,10 @@ footer nav > div > ul > li {
   .product-page .related {
     grid-column: 1/3;
     flex-flow: column nowrap !important;
+    /* this overwrites a row flex */
+  }
+  .product-page .related > * {
+    flex: 1 1 1rem;
   }
 }
 
@@ -1207,21 +1171,21 @@ footer nav > div > ul > li {
   display: flex;
   flex-direction: column;
 }
-.related .products {
-  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
-}
-@media screen and (min-width: 39.9988em) {
-  .related .products {
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  }
-}
-.related .products .card-image {
-  height: auto !important;
-}
 
-.page__cell {
-  max-width: 40rem;
-  margin: 3rem auto;
+/*------------------------------------*/
+.cover {
+  display: grid;
+  place-content: center;
+}
+.cover > * {
+  grid-row: 1;
+  grid-column: 1;
+}
+.cover img,
+.cover picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*------------------*/
@@ -1351,8 +1315,6 @@ textarea[readonly] {
 
 [type=submit],
 [type=button] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border-radius: 4px;
 }
@@ -1433,13 +1395,9 @@ label.middle {
 }
 
 .input-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   margin-bottom: 1rem;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
   align-items: stretch;
 }
 
@@ -1471,14 +1429,8 @@ label.middle {
   color: var(--black-metal);
   text-align: center;
   white-space: nowrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -1492,8 +1444,6 @@ label.middle {
 
 .input-group-field {
   border-radius: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 0px;
   flex: 1 1 0px;
   min-width: 0;
 }
@@ -1502,11 +1452,7 @@ label.middle {
   padding-top: 0;
   padding-bottom: 0;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
@@ -1514,7 +1460,6 @@ label.middle {
 .input-group-button input,
 .input-group-button button,
 .input-group-button label {
-  -ms-flex-item-align: stretch;
   align-self: stretch;
   height: auto;
   padding-top: 0;
@@ -1666,6 +1611,15 @@ footer {
   color: var(--black-out);
 }
 
+.products > .product .card-section {
+  background-color: var(--kingly-cloud);
+  transition: var(--general-timing);
+}
+
+.woocommerce-result-count {
+  color: gray;
+}
+
 /*------------------*/
 /*------------------*/
 [data-whatinput=mouse] button {
@@ -1674,6 +1628,10 @@ footer {
 
 button,
 .button {
+  font-weight: normal;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.85em 1em;
   background: var(--kingly-cloud);
   color: var(--primary-color);
   border-radius: var(--vinson-radius);
@@ -1682,14 +1640,8 @@ button,
 }
 
 button {
-  padding: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border: 0;
-  background: var(--kingly-cloud);
-  line-height: 1;
-  cursor: auto;
   cursor: pointer;
 }
 

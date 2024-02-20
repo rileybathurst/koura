@@ -128,8 +128,6 @@ textarea[readonly] {
 }
 [type="submit"],
 [type="button"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border-radius: 4px;
 }
@@ -195,13 +193,9 @@ label.middle {
   color: var(--black-metal);
 }
 .input-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   margin-bottom: 1rem;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
   align-items: stretch;
 }
 .input-group > :first-child,
@@ -229,14 +223,8 @@ label.middle {
   color: var(--black-metal);
   text-align: center;
   white-space: nowrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .input-group-label:first-child {
@@ -247,8 +235,6 @@ label.middle {
 }
 .input-group-field {
   border-radius: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 0px;
   flex: 1 1 0px;
   min-width: 0;
 }
@@ -256,18 +242,13 @@ label.middle {
   padding-top: 0;
   padding-bottom: 0;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 .input-group-button a,
 .input-group-button input,
 .input-group-button button,
 .input-group-button label {
-  -ms-flex-item-align: stretch;
   align-self: stretch;
   height: auto;
   padding-top: 0;

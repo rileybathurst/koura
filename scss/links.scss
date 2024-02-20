@@ -50,13 +50,13 @@ a img {
 
 /*------------------------------------*/
 
-.featured {
+.cover {
   a {
     border-radius: 4px;
     padding-inline: 1rem;
     padding-block: 0.5rem;
     // --raven-black
-    background: hsla(0, 0%, 25%, 0.9);
+    background-color: hsla(0, 0%, 25%, 0.9);
     color: var(--brilliance);
     transition: var(--general-timing);
   }
@@ -80,4 +80,11 @@ a img {
 
 .top-bar a:hover {
   background: var(--tin-soldier);
+}
+
+/*------------------------------------*/
+
+/* // TODO: more needs to move here so all happens at once */
+.card:hover .card-section {
+  background-color: var(--brilliance);
 }
