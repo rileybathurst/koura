@@ -4,6 +4,8 @@
  */ 
 ?>
 
+<!-- // ! this is not sorted especially on mobile -->
+
 <?php get_header(); ?>
 
 <!-- Start the main container -->
