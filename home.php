@@ -12,9 +12,10 @@
 
 			$format = get_post_format();
 			get_template_part( 'format', $format );
-			?>
+		?>
 
 			<div class="cover">
+				<!-- // TODO: there something going on here where if the content has a <p> tag it doubles the link -->
 				<?php the_post_thumbnail( 'full' ); ?>
 				<a href="<?php the_permalink(); ?>"><?php the_content(); ?></a>
 			</div>
