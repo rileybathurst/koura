@@ -295,4 +295,12 @@ footer nav > div > ul {
     height: 100%;
     object-fit: cover;
   }
+
+  a,
+  p {
+    width: max-content;
+    height: max-content;
+    place-self: center;
+    text-align: center;
+  }
 }
